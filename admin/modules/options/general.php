@@ -39,6 +39,12 @@ $errors = getFlashData('errors');
                 </div>
 
                 <div class="form-group">
+                    <label for=""><?php echo getOption('general_address', 'label'); ?></label>
+                    <input type="text" class="form-control" name="general_address" placeholder="<?php echo getOption('general_address', 'label'); ?>..." value="<?php echo getOption('general_address'); ?>"/>
+                    <?php echo form_error('general_address', $errors, '<span class="error">', '</span>'); ?>
+                </div>
+
+                <div class="form-group">
                     <label for=""><?php echo getOption('general_time', 'label'); ?></label>
                     <input type="text" class="form-control" name="general_time" placeholder="<?php echo getOption('general_time', 'label'); ?>..." value="<?php echo getOption('general_time'); ?>"/>
                     <?php echo form_error('general_time', $errors, '<span class="error">', '</span>'); ?>

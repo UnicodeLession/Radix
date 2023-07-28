@@ -58,7 +58,8 @@ $errors = getFlashData('errors');
 
                 <div class="form-group">
                     <label for=""><?php echo getOption('footer_3_twitter', 'label'); ?></label>
-                    <input type="text" class="form-control" name="footer_3_twitter" placeholder="<?php echo getOption('footer_3_twitter', 'label'); ?>..." value="<?php echo getOption('footer_3_twitter'); ?>"/>
+                    <input type="text" class="form-control " name="footer_3_twitter" placeholder="<?php echo getOption('footer_3_twitter', 'label'); ?>..." value="<?php echo getOption('footer_3_twitter'); ?>"/>
+                    <p><b>Link</b>: <a href="https://twitter.com/<?php echo getOption('footer_3_twitter') ?>">https://twitter.com/<?php echo getOption('footer_3_twitter') ?></a></p>
                     <?php echo form_error('footer_3_twitter', $errors, '<span class="error">', '</span>'); ?>
                 </div>
 

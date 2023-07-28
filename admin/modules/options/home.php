@@ -63,10 +63,12 @@ if (isPost()){
         if (!empty(getBody()['home_about']['skill']['name'])){
 
             foreach (getBody()['home_about']['skill']['name'] as $key=>$value){
-                $skillArr[] = [
-                    'name' => $value,
-                    'value' => getBody()['home_about']['skill']['value'][$key]
-                ];
+                if (!empty($value)) {
+                    $skillArr[] = [
+                        'name' => $value,
+                        'value' => getBody()['home_about']['skill']['value'][$key]
+                    ];
+                }
             }
 
             $skillJson = json_encode($skillArr);
@@ -87,10 +89,12 @@ if (isPost()){
         if (!empty(getBody()['home_partner_content']['logo'])){
 
             foreach (getBody()['home_partner_content']['logo'] as $key=>$value){
-                $partnerArr[] = [
-                    'logo' => $value,
-                    'link' => getBody()['home_partner_content']['link'][$key]
-                ];
+                if (!empty($value)) {
+                    $partnerArr[] = [
+                        'logo' => $value,
+                        'link' => getBody()['home_partner_content']['link'][$key]
+                    ];
+                }
             }
 
             $partnerJson = json_encode($partnerArr);
@@ -129,12 +133,20 @@ $errors = getFlashData('errors');
                     if (!empty($homeSlideJson)){
                         $homeSlideArr = json_decode($homeSlideJson, true);
                         if (!empty($homeSlideArr)){
-                            foreach ($homeSlideArr as $item){
+                            foreach ($homeSlideArr as $key => $item){
                                 ?>
                                 <div class="slide-item">
                                     <div class="row">
-                                        <div class="col-11">
-                                            <div class="row">
+                                        <div class="" style="padding-left: 8px; margin-right: 10px; ">
+                                            <span class="btn btn-info " style="margin-bottom: 10px; width: 6%%">Slide <?php echo $key +1 ?></span>
+                                        </div>
+                                        <div class="" style="width: 4%;margin-top: 4px;">
+                                            <a href="#" class="btn btn-danger btn-sm btn-block remove" style="" >Xóa</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row" style="border: 3px inset #f5f5f5; padding-left: 10px">
                                                 <div class="col-6">
                                                     <div class="form-group">
                                                         <label for="">Tiêu đề</label>
@@ -217,9 +229,7 @@ $errors = getFlashData('errors');
                                             </div>
 
                                         </div>
-                                        <div class="col-1">
-                                            <a href="#" class="btn btn-danger btn-sm btn-block remove">&times;</a>
-                                        </div>
+
                                     </div>
                                 </div><!--End .slide-item-->
                                 <?php
@@ -282,7 +292,10 @@ $errors = getFlashData('errors');
                 <div class="skill-wrapper">
                     <?php
                     if (!empty($homeAboutSkill)):
-                        foreach ($homeAboutSkill as $item):
+                        foreach ($homeAboutSkill as $key => $item):
+                            if (empty($item['name'])) {
+                                unset($homeAboutSkill[$key]);
+                            }
                             ?>
                             <div class="skill-item">
                                 <div class="row">
@@ -300,7 +313,7 @@ $errors = getFlashData('errors');
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-1">
+                                    <div class="col-1" style="margin-top: 38px;">
                                         <a href="#" class="btn btn-danger btn-sm btn-block remove">&times;</a>
                                     </div>
                                 </div>
@@ -522,7 +535,7 @@ $errors = getFlashData('errors');
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-1">
+                                    <div class="col-1" style="margin-top: 38px;">
                                         <a href="#" class="btn btn-danger btn-sm btn-block remove">&times;</a>
                                     </div>
                                 </div>
