@@ -33,6 +33,26 @@ if (!empty($homeSlide)){
                                 }
 
                                 ?>
+                                <?php
+                                if ($allowTwoCol && $classItemSlide === 'slider-right'):
+                                    ?>
+                                    <div class="col-lg-5 col-md-6 col-12">
+                                        <!-- Image Gallery -->
+                                        <div class="image-gallery">
+                                            <?php if (!empty($item['slide_image_1'])): ?>
+                                                <div class="single-image">
+                                                    <img src="<?php echo $item['slide_image_1']; ?>" alt="#">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if (!empty($item['slide_image_2'])): ?>
+                                                <div class="single-image two">
+                                                    <img src="<?php echo $item['slide_image_2']; ?>" alt="#">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <!--/ End Image Gallery -->
+                                    </div>
+                                <?php endif; ?>
                                 <div class="<?php echo $classCol; ?>">
                                     <!-- Slider Text -->
                                     <div class="slider-text">
@@ -58,7 +78,7 @@ if (!empty($homeSlide)){
                                     <!--/ End Slider Text -->
                                 </div>
                                 <?php
-                                if ($allowTwoCol):
+                                if ($allowTwoCol && $classItemSlide !== 'slider-right'):
                                     ?>
                                     <div class="col-lg-5 col-md-6 col-12">
                                         <!-- Image Gallery -->

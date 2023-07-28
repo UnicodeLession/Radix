@@ -148,7 +148,7 @@ $msgType = getFlashData('msg_type');
                             <td><?php echo $key+1; ?></td>
                             <td>
                                 <?php
-                                echo (isFontIcon($item['icon']))?$item['icon']:'<img src="'.$item['icon'].'" width="80"/>';
+                                echo (isFontIcon($item['icon']))?html_entity_decode($item['icon']):'<img src="'.$item['icon'].'" width="80"/>';
                                  ?>
                             </td>
                             <td><a href="<?php echo getLinkAdmin('services', 'edit', ['id'=>$item['id']]); ?>"><?php echo $item['name']; ?></a>

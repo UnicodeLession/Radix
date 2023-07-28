@@ -3,9 +3,9 @@ if (!defined('_INCODE')) die('Access Deined...');
 $data = [
     'pageTitle' => 'Trang Chủ'
 ];
-
-$userId = isLogin()['user_id'];
-$userDetail = getUserInfo($userId);
+//
+//$userId = isLogin()['user_id'];
+//$userDetail = getUserInfo($userId);
 layout('header', 'client', $data);
 
 require_once 'contents/slide.php';

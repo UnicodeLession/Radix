@@ -54,9 +54,8 @@ if (isPost()){
 
     $homeAbout = [];
     if (!empty(getBody()['home_about'])){
-        $homeAbout['infomation'] = json_encode(getBody()['home_about']);
+        $homeAbout['information'] = json_encode(getBody()['home_about']);
     }
-
     $skillJson = '';
 
     if (!empty(getBody()['home_about']['skill'])){
@@ -122,7 +121,7 @@ $errors = getFlashData('errors');
                 <?php
                 getMsg($msg, $msgType);
                 ?>
-                <h5 class="divide-content text-primary">Thiết lập slide</h5>
+                <h5 class="divide-content text-primary ">Thiết lập slide</h5>
 
                 <div class="slide-wrapper">
                     <?php
@@ -232,7 +231,7 @@ $errors = getFlashData('errors');
 
                 <p><button type="button" class="btn btn-warning btn-sm add-slide">Thêm slide</button></p>
 
-                <h5 class="divide-content text-primary">Thiết lập giới thiệu</h5>
+                <h5 class="divide-content text-primary ">Thiết lập giới thiệu</h5>
 
                 <?php
                 $homeAboutJson = getOption('home_about');
@@ -241,7 +240,7 @@ $errors = getFlashData('errors');
                 $homeAboutSkill = [];
                 if (!empty($homeAboutJson)){
                     $homeAboutArr = json_decode($homeAboutJson, true);
-                    $homeAboutInfo = json_decode($homeAboutArr['infomation'], true);
+                    $homeAboutInfo = json_decode($homeAboutArr['information'], true);
                     $homeAboutSkill = json_decode($homeAboutArr['skill'], true);
                 }
 
@@ -279,18 +278,15 @@ $errors = getFlashData('errors');
                     <textarea name="home_about[content]" class="editor"><?php echo (!empty($homeAboutInfo['content']))?$homeAboutInfo['content']:false; ?></textarea>
                 </div>
 
-                <h5 class="divide-content text-primary">Thiết lập năng lực</h5>
+                <h5 class="divide-content text-primary ">Thiết lập năng lực</h5>
                 <div class="skill-wrapper">
                     <?php
                     if (!empty($homeAboutSkill)):
                         foreach ($homeAboutSkill as $item):
                             ?>
                             <div class="skill-item">
-                                <div class="col-1">
-                                    <a href="#" class="btn btn-danger btn-sm btn-block remove">&times;</a>
-                                </div>
                                 <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-11">
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
@@ -304,7 +300,9 @@ $errors = getFlashData('errors');
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="col-1">
+                                        <a href="#" class="btn btn-danger btn-sm btn-block remove">&times;</a>
+                                    </div>
                                 </div>
                             </div><!--End .skill-item-->
                         <?php
@@ -313,7 +311,7 @@ $errors = getFlashData('errors');
                 </div><!--End .skill-wrapper-->
                 <p><button type="button" class="btn btn-warning btn-sm add-skill">Thêm năng lực</button></p>
 
-                <h5 class="divide-content text-primary">Thiết lập dịch vụ</h5>
+                <h5 class="divide-content text-primary ">Thiết lập dịch vụ</h5>
 
                 <div class="form-group">
                     <label for=""><?php echo getOption('home_service_title_bg', 'label'); ?></label>
@@ -333,7 +331,7 @@ $errors = getFlashData('errors');
                     <?php echo form_error('home_service_desc', $errors, '<span class="error">', '</span>'); ?>
                 </div>
 
-                <h5 class="divide-content text-primary">Thiết lập thành tựu</h5>
+                <h5 class="divide-content text-primary ">Thiết lập thành tựu</h5>
 
                 <div class="form-group">
                     <label for=""><?php echo getOption('home_fact_title', 'label'); ?></label>
@@ -389,7 +387,7 @@ $errors = getFlashData('errors');
                     <?php echo form_error('home_fact_award_number', $errors, '<span class="error">', '</span>'); ?>
                 </div>
 
-                <h5 class="divide-content text-primary">Thiết lập dự án</h5>
+                <h5 class="divide-content text-primary ">Thiết lập dự án</h5>
 
                 <div class="form-group">
                     <label for=""><?php echo getOption('home_portfolio_title', 'label'); ?></label>
@@ -421,7 +419,7 @@ $errors = getFlashData('errors');
                     <?php echo form_error('home_portfolio_more_text', $errors, '<span class="error">', '</span>'); ?>
                 </div>
 
-                <h5 class="divide-content text-primary">Thiết lập kêu gọi hành động</h5>
+                <h5 class="divide-content text-primary ">Thiết lập kêu gọi hành động</h5>
 
                 <div class="form-group">
                     <label for=""><?php echo getOption('home_cta_content', 'label'); ?></label>
@@ -440,8 +438,18 @@ $errors = getFlashData('errors');
                     <input type="text" class="form-control" name="home_cta_button_link" placeholder="<?php echo getOption('home_cta_button_link', 'label'); ?>..." value="<?php echo getOption('home_cta_button_link'); ?>"/>
                     <?php echo form_error('home_cta_button_link', $errors, '<span class="error">', '</span>'); ?>
                 </div>
-
-                <h5 class="divide-content text-primary">Thiết lập blog</h5>
+                <div class="form-group">
+                    <label for="">Hình ảnh</label>
+                    <div class="row ckfinder-group">
+                        <div class="col-10">
+                            <input type="text" class="form-control image-render" name="home_about[image]" placeholder="Đường dẫn ảnh..." value="<?php echo (!empty(getOption('home_cta_image_bg')))?getOption('home_cta_image_bg'):false; ?>"/>
+                        </div>
+                        <div class="col-2">
+                            <button type="button" class="btn btn-success btn-block choose-image"><i class="fa fa-upload" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="divide-content text-primary ">Thiết lập blog</h5>
 
                 <div class="form-group">
                     <label for=""><?php echo getOption('home_blog_title', 'label'); ?></label>
@@ -461,7 +469,7 @@ $errors = getFlashData('errors');
                     <?php echo form_error('home_blog_desc', $errors, '<span class="error">', '</span>'); ?>
                 </div>
 
-                <h5 class="divide-content text-primary">Thiết lập đối tác</h5>
+                <h5 class="divide-content text-primary ">Thiết lập đối tác</h5>
 
                 <div class="form-group">
                     <label for=""><?php echo getOption('home_partner_title', 'label'); ?></label>
@@ -481,7 +489,7 @@ $errors = getFlashData('errors');
                     <?php echo form_error('home_partner_desc', $errors, '<span class="error">', '</span>'); ?>
                 </div>
 
-                <h5 class="divide-content text-primary">Danh sách đối tác</h5>
+                <h5 class="divide-content text-primary ">Danh sách đối tác</h5>
                 <div class="partner-wrapper">
                     <?php
                     $partnerJson = getOption('home_partner_content');

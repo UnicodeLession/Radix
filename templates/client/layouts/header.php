@@ -121,7 +121,7 @@
                         <?php if(!empty($logo)) : ?>
                             <a href="<?php echo _WEB_HOST_ROOT ?>"><img src="<?php echo $logo ?>" alt="logo"></a>
                         <?php else: ?>
-                            <h1 style="color: white">Logo</h1>
+                            <h1 style="color: white ;     margin: 8px 0 0 0;" >Logo</h1>
                         <?php endif; ?>
                     </div>
                     <div class="link"><a href="index.html"><span>R</span>adix</a></div>

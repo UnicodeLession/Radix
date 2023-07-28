@@ -5,7 +5,7 @@ $homeAboutInfo = [];
 $homeAboutSkill = [];
 if (!empty($homeAboutJson)){
     $homeAboutArr = json_decode($homeAboutJson, true);
-    $homeAboutInfo = json_decode($homeAboutArr['infomation'], true);
+    $homeAboutInfo = json_decode($homeAboutArr['information'], true);
     $homeAboutSkill = json_decode($homeAboutArr['skill'], true);
 }
 ?>
