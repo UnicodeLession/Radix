@@ -49,8 +49,6 @@ $listBlog = getRaw("SELECT title, description, blog.id, thumbnail, view_count, b
                                 </div>
                                 <!-- End Single Blog -->
                             </div>
-
-
                         <?php endforeach; endif; ?>
                 </div>
             </div>

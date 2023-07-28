@@ -48,7 +48,7 @@ if (isPost()){
      * [0] => [
      *   'slide_title' => 'Tiêu đề 1',
      *   'slide_button_text' => 'Xem thêm',
-     *   'slide_button_link'  => '#'
+     *   'slide_button_link'  => '#'``
      * ]
      *
      * */
