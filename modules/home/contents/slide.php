@@ -21,7 +21,7 @@ if (!empty($homeSlide)){
                     }
                     ?>
                     <!-- Single Slider -->
-                    <div class="single-slider <?php echo !empty($classItemSlide)?$classItemSlide:false; ?>" style="background-image:url('<?php echo _WEB_HOST_ROOT.$item['slide_bg']; ?>')">
+                    <div class="single-slider <?php echo !empty($classItemSlide)?$classItemSlide:false; ?>" style="background-image:url('<?php echo _WEB_HOST_TEMPLATE; ?>/images/slider/slider-image1.jpg')">
                         <div class="container">
                             <div class="row">
                                 <?php
@@ -33,29 +33,8 @@ if (!empty($homeSlide)){
                                 }
 
                                 ?>
-<!--                                Nếu slider-right (text về phía phải) thì ảnh phải hiện trước text còn k thì hiện sau text-->
-                                <?php
-                                if ($allowTwoCol && $classItemSlide == 'slider-right'):
-                                    ?>
-                                    <div class="col-lg-5 col-md-6 col-12">
-                                        <!-- Image Gallery -->
-                                        <div class="image-gallery">
-                                            <?php if (!empty($item['slide_image_1'])): ?>
-                                                <div class="single-image">
-                                                    <img src="<?php echo _WEB_HOST_ROOT.$item['slide_image_1']; ?>" alt="#">
-                                                </div>
-                                            <?php endif; ?>
-                                            <?php if (!empty($item['slide_image_2'])): ?>
-                                                <div class="single-image two">
-                                                    <img src="<?php echo _WEB_HOST_ROOT.$item['slide_image_2']; ?>" alt="#">
-                                                </div>
-                                            <?php endif; ?>
-                                        </div>
-                                        <!--/ End Image Gallery -->
-                                    </div>
-                                <?php endif; ?>
-                                <!-- Slider Text -->
                                 <div class="<?php echo $classCol; ?>">
+                                    <!-- Slider Text -->
                                     <div class="slider-text">
                                         <?php
                                         if (!empty($item['slide_title'])):
@@ -76,12 +55,10 @@ if (!empty($homeSlide)){
                                             <?php endif; ?>
                                         </div>
                                     </div>
+                                    <!--/ End Slider Text -->
                                 </div>
-                                <!--/ End Slider Text -->
-
-                                <!--Nếu slider-right (text về phía phải) thì ảnh phải hiện trước text còn k thì hiện sau text-->
                                 <?php
-                                if ($allowTwoCol && $classItemSlide != 'slider-right'):
+                                if ($allowTwoCol):
                                     ?>
                                     <div class="col-lg-5 col-md-6 col-12">
                                         <!-- Image Gallery -->
