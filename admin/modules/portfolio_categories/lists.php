@@ -80,7 +80,7 @@ $msgType = getFlashData('msg_type');
                     ?>
                 </div>
                 <div class="col-6">
-                    <h4>
+                    <h4 style="    margin-bottom: 40px;">
                         Danh sách danh mục
                     </h4>
                     <form action="" method="get">

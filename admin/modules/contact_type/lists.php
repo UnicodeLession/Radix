@@ -70,9 +70,6 @@ if (!empty($_SERVER['QUERY_STRING'])){
 
 //Lấy dữ liệu nhóm ngưòi dùng
 $listContactType = getRaw("SELECT *, (SELECT count(contacts.id) FROM contacts WHERE contacts.type_id=contact_type.id) as contact_count FROM contact_type $filter ORDER BY create_at DESC LIMIT $offset, $perPage");
-echo "<pre>";
-print_r($listContactType);
-echo "</pre>";
 $msg = getFlashData('msg');
 $msgType = getFlashData('msg_type');
 ?>
@@ -93,7 +90,7 @@ $msgType = getFlashData('msg_type');
                     ?>
                 </div>
                 <div class="col-6">
-                    <h4>Danh sách phòng ban</h4>
+                    <h4 style="    margin-bottom: 40px;">Danh sách phòng ban</h4>
                     <form action="" method="get">
                         <div class="row">
                             <div class="col-9">

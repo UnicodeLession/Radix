@@ -139,8 +139,8 @@
                                 <li class="active"><a href="index.html">Home</a></li>
                                 <li><a href="#">Pages<i class="fa fa-caret-down"></i></a>
                                     <ul class="dropdown">
-                                        <li><a href="about-us.html">About Us</a></li>
-                                        <li><a href="team.html">Our Team</a></li>
+                                        <li><a href="?module=page-template&action=about">About Us</a></li>
+                                        <li><a href="?module=page-template&action=contact">Our Team</a></li>
                                         <li><a href="pricing.html">Pricing</a></li>
                                     </ul>
                                 </li>
