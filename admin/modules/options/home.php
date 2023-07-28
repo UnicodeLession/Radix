@@ -78,7 +78,6 @@ if (isPost()){
     }
 
     $homeAbout['skill'] = $skillJson;
-
     $homeAboutJson = json_encode($homeAbout);
 
     //xử lý update danh sách đối tác
@@ -271,7 +270,7 @@ $errors = getFlashData('errors');
                     <label for="">Hình ảnh</label>
                     <div class="row ckfinder-group">
                         <div class="col-10">
-                            <input type="text" class="form-control image-render" name="home_about[image]" placeholder="Đường dẫn ảnh..." value="<?php echo (!empty($homeAboutInfo['image']))?$homeAboutInfo['image']:false; ?>"/>
+                            <input type="text" class="form-control image-render" name="home_about[image]" placeholder="Đường dẫn ảnh..." value="<?php echo (!empty($homeAboutInfo['image']))?$homeAboutInfo['image']:false ?>"/>
                         </div>
                         <div class="col-2">
                             <button type="button" class="btn btn-success btn-block choose-image"><i class="fa fa-upload" aria-hidden="true"></i></button>
@@ -456,7 +455,7 @@ $errors = getFlashData('errors');
                     <label for="">Hình ảnh</label>
                     <div class="row ckfinder-group">
                         <div class="col-10">
-                            <input type="text" class="form-control image-render" name="home_about[image]" placeholder="Đường dẫn ảnh..." value="<?php echo (!empty(getOption('home_cta_image_bg')))?getOption('home_cta_image_bg'):false; ?>"/>
+                            <input type="text" class="form-control image-render" name="home_cta_image_bg" placeholder="Đường dẫn ảnh..." value="<?php echo (!empty(getOption('home_cta_image_bg')))?getOption('home_cta_image_bg'):false; ?>"/>
                         </div>
                         <div class="col-2">
                             <button type="button" class="btn btn-success btn-block choose-image"><i class="fa fa-upload" aria-hidden="true"></i></button>
