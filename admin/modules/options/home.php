@@ -23,20 +23,21 @@ if (isPost()){
         if (!empty($homeSlide['slide_title'])){
 
             foreach ($homeSlide['slide_title'] as $key => $value){
-                $homeSlideArr[] = [
-                    'slide_title' => $value,
-                    'slide_button_text' => isset($homeSlide['slide_button_text'][$key])?$homeSlide['slide_button_text'][$key]:'',
-                    'slide_button_link' => isset($homeSlide['slide_button_link'][$key])?$homeSlide['slide_button_link'][$key]:'',
-                    'slide_video' => isset($homeSlide['slide_video'][$key])?$homeSlide['slide_video'][$key]:'',
-                    'slide_image_1' => isset($homeSlide['slide_image_1'][$key])?$homeSlide['slide_image_1'][$key]:'',
-                    'slide_image_2' => isset($homeSlide['slide_image_2'][$key])?$homeSlide['slide_image_2'][$key]:'',
-                    'slide_desc' => isset($homeSlide['slide_desc'][$key])?$homeSlide['slide_desc'][$key]:'',
-                    'slide_bg' => isset($homeSlide['slide_bg'][$key])?$homeSlide['slide_bg'][$key]:'',
-                    'slide_position' => isset($homeSlide['slide_position'][$key])?$homeSlide['slide_position'][$key]:'left',
-                ];
+                if (!empty($value)) {
+                    $homeSlideArr[] = [
+                        'slide_title' => $value,
+                        'slide_button_text' => isset($homeSlide['slide_button_text'][$key])?$homeSlide['slide_button_text'][$key]:'',
+                        'slide_button_link' => isset($homeSlide['slide_button_link'][$key])?$homeSlide['slide_button_link'][$key]:'',
+                        'slide_video' => isset($homeSlide['slide_video'][$key])?$homeSlide['slide_video'][$key]:'',
+                        'slide_image_1' => isset($homeSlide['slide_image_1'][$key])?$homeSlide['slide_image_1'][$key]:'',
+                        'slide_image_2' => isset($homeSlide['slide_image_2'][$key])?$homeSlide['slide_image_2'][$key]:'',
+                        'slide_desc' => isset($homeSlide['slide_desc'][$key])?$homeSlide['slide_desc'][$key]:'',
+                        'slide_bg' => isset($homeSlide['slide_bg'][$key])?$homeSlide['slide_bg'][$key]:'',
+                        'slide_position' => isset($homeSlide['slide_position'][$key])?$homeSlide['slide_position'][$key]:'left',
+                    ];
+                }
             }
         }
-
         //Chuyển mảng thành chuỗi json
         $homeSlideJson = json_encode($homeSlideArr);
     }

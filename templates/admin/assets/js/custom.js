@@ -190,13 +190,18 @@ if (addGalleryObject!==null && galleryImagesObject!==null){
     });
 }
 
-const slideItemHtml = `<div class="slide-item" style="border: 1px dotted #0c0c0e;; margin-bottom: 10px">
-                                    <div class="col-1" style="padding-left: 0; margin-top: 10px;">
-                                        <a href="#" class=" btn btn-danger btn-sm btn-block remove">Xóa Slide</a>
+const slideItemHtml = `<div class="slide-item" style=" margin-bottom: 10px ; border: 3px outset  #f5f5f5;">
+                                    <div class="row">
+                                        <div class="" style="padding-left: 8px; margin-right: 10px; ">
+                                            <span class="btn btn-info " style="margin-bottom: 10px; width: 6%%">Slide (chưa thêm)</span>
+                                        </div>
+                                        <div class="" style="width: 4%;margin-top: 4px;">
+                                            <a href="#" class="btn btn-danger btn-sm btn-block remove" style="" >Xóa</a>
+                                        </div>
                                     </div>
                         <div class="row">
                             <div class="col-12">
-                                <div class="row">
+                                <div class="row" style=" padding-left: 10px">
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="">Tiêu đề</label>
