@@ -547,7 +547,7 @@ $errors = getFlashData('errors');
                 </div><!--End .partner-wrapper-->
                 <p><button type="button" class="btn btn-warning btn-sm add-partner">Thêm đối tác</button></p>
 
-                <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                <button type="submit" class="btn btn-primary mb-3">Lưu thay đổi</button>
 
             </form>
         </div>

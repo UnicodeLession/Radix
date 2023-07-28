@@ -65,7 +65,7 @@ $errors = getFlashData('errors');
                     <input type="text" class="form-control" name="header_quote_link" placeholder="<?php echo getOption('header_quote_link', 'label'); ?>..." value="<?php echo getOption('header_quote_link'); ?>"/>
                     <?php echo form_error('header_quote_link', $errors, '<span class="error">', '</span>'); ?>
                 </div>
-                <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                <button type="submit" class="btn btn-primary mb-3">Lưu thay đổi</button>
 
             </form>
         </div>

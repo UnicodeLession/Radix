@@ -81,7 +81,7 @@ $errors = getFlashData('errors');
                 </div>
 
 
-                <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                <button type="submit" class="btn btn-primary mb-3">Lưu thay đổi</button>
 
             </form>
         </div>

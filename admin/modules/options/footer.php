@@ -84,7 +84,7 @@ $errors = getFlashData('errors');
                     <?php echo form_error('footer_copyright', $errors, '<span class="error">', '</span>'); ?>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                <button type="submit" class="btn btn-primary mb-3">Lưu thay đổi</button>
 
             </form>
         </div>
