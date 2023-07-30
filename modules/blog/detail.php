@@ -38,7 +38,6 @@ $currentKey = array_search($id, array_column($allBlogs, 'id'));
 $userEmail = $blogDetail['email'];
 $hashGravatar = md5($userEmail);
 $avatarUrl = 'https://www.gravatar.com/avatar/'.$hashGravatar.'?s=400';
-
 ?>
     <section class="blogs-main archives single section">
         <div class="container">
@@ -49,13 +48,13 @@ $avatarUrl = 'https://www.gravatar.com/avatar/'.$hashGravatar.'?s=400';
                             <!-- Single Blog -->
                             <div class="single-blog">
                                 <?php
-                                    if (!empty($blogDetail['thumbnail'])):
-                                ?>
-                                <div class="blog-head">
-                                    <img src="<?php echo $blogDetail['thumbnail']; ?>" alt="#">
-                                </div>
+                                if (!empty($blogDetail['thumbnail'])):
+                                    ?>
+                                    <div class="blog-head">
+                                        <img src="<?php echo $blogDetail['thumbnail']; ?>" alt="#">
+                                    </div>
                                 <?php
-                                    endif;
+                                endif;
                                 ?>
                                 <div class="blog-inner">
                                     <div class="blog-top">
@@ -80,14 +79,14 @@ $avatarUrl = 'https://www.gravatar.com/avatar/'.$hashGravatar.'?s=400';
                                         <ul class="arrow">
                                             <?php
                                             if ($currentKey>0):
-                                            ?>
-                                            <li class="prev"><a href="<?php echo _WEB_HOST_ROOT.'?module=blog&action=detail&id='.($allBlogs[$currentKey-1]['id']) ?>"><i class="fa fa-angle-double-left"></i>Bài trước</a></li>
+                                                ?>
+                                                <li class="prev"><a href="<?php echo _WEB_HOST_ROOT.'?module=blog&action=detail&id='.($allBlogs[$currentKey-1]['id']) ?>"><i class="fa fa-angle-double-left"></i>Bài trước</a></li>
                                             <?php
                                             endif;
                                             if ($currentKey<count($allBlogs)-1):
-                                            ?>
-                                            <li class="next"><a href="<?php echo _WEB_HOST_ROOT.'?module=blog&action=detail&id='.($allBlogs[$currentKey+1]['id']) ?>">Bài sau<i class="fa fa-angle-double-right"></i></a></li>
-                                           <?php endif; ?>
+                                                ?>
+                                                <li class="next"><a href="<?php echo _WEB_HOST_ROOT.'?module=blog&action=detail&id='.($allBlogs[$currentKey+1]['id']) ?>">Bài sau<i class="fa fa-angle-double-right"></i></a></li>
+                                            <?php endif; ?>
                                         </ul>
                                         <!--/ End Next Prev -->
                                     </div>
@@ -104,7 +103,7 @@ $avatarUrl = 'https://www.gravatar.com/avatar/'.$hashGravatar.'?s=400';
                                         echo $blogDetail['fullname'];
                                         echo '<span>'.$blogDetail['group_name'].'</span>';
                                         ?></h4>
-                                    <p><a href="#"><i class="fa fa-pencil"></i><?php echo $blogDetail['blog_count']; ?> bài viết</a></p>
+                                    <p><a href="<?php echo '?module=blog&user_id='.$blogDetail['user_id'] ?>"><i class="fa fa-pencil"></i><?php echo $blogDetail['blog_count']; ?> bài viết</a></p>
                                 </div>
                                 <div class="author-content">
                                     <p><?php echo $blogDetail['about_content']; ?></p>
@@ -125,7 +124,7 @@ $avatarUrl = 'https://www.gravatar.com/avatar/'.$hashGravatar.'?s=400';
                         </div>
                         <div class="col-12">
                             <?php
-                                require_once _WEB_PATH_ROOT.'/modules/blog/comment_form.php';
+                            require_once _WEB_PATH_ROOT.'/modules/blog/comment_form.php';
                             ?>
                         </div>
                     </div>

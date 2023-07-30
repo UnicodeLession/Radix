@@ -95,7 +95,7 @@ $msgType = getFlashData('msg_type');
             <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
             <hr>
             <p class="text-center"><a href="?module=auth&action=forgot">Quên mật khẩu</a></p>
-
+            <p class="text-center"><a href="<?php echo _WEB_HOST_ROOT; ?>">Truy cập với tư cách khách</a></p>
         </form>
     </div>
 </div>

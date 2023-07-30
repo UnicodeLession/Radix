@@ -245,7 +245,7 @@ $userDetail = getUserInfo($userId);
                -->
                 <li class="nav-item has-treeview <?php echo activeMenuSidebar('contacts') || activeMenuSidebar('contact_type')?'menu-open':false; ?>">
                     <a href="#" class="nav-link <?php echo activeMenuSidebar('contacts') || activeMenuSidebar('contact_type')?'active':false; ?>">
-                        <i class="nav-icon fas fa-user"></i>
+                        <i class="nav-icon fas fa-address-book"></i>
                         <p>
                             Quản lý liên hệ <span class="badge badge-danger"><?php echo getCountContacts(); ?></span>
                             <i class="fas fa-angle-left right"></i>

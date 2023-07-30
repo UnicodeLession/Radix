@@ -3,15 +3,15 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2><i class="fa fa-pencil"></i>
-                    <?php
-                    if (!empty($data['pageName'])){
-                        echo $data['pageName'];
-                    }elseif($data['pageTitle']){
-                        echo $data['pageTitle'];
-                    }
-                    ?>
-                </h2>
+                    <h2><i class="fa fa-pencil"></i>
+                        <?php
+                        if (!empty($data['pageName'])){
+                            echo $data['pageName'];
+                        }elseif($data['pageTitle']){
+                            echo $data['pageTitle'];
+                        }
+                        ?>
+                    </h2>
                 <ul>
                     <li><a href="<?php echo _WEB_HOST_ROOT; ?>"><i class="fa fa-home"></i>Trang chủ</a></li>
                     <?php

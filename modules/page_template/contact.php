@@ -120,7 +120,7 @@ if (isPost()) {
         setFlashData('errors', $errors);
     }
 
-    redirect('?module=page_template&action=contact');
+    redirect('?module=page_template&action=contact#contact-us');
 }
 
 $msg = getFlashData('msg');
@@ -129,7 +129,7 @@ $errors = getFlashData('errors');
 
 ?>
     <!-- Start Contact -->
-    <section id="contact-us" class="contact-us section">
+    <section id="contact-us" class="contact-us section" >
         <div class="container">
             <div class="row">
                 <div class="col-12">

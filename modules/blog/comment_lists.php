@@ -1,4 +1,5 @@
 <?php
+
 $commentLists = getRaw("SELECT comments.*, users.fullname, users.email as user_email, `groups`.name as group_name FROM comments LEFT JOIN users ON comments.user_id=users.id LEFT JOIN `groups` ON users.group_id=`groups`.id WHERE blog_id=$id AND comments.status=1 ORDER BY comments.create_at DESC");
 
 $commentData = [];
@@ -11,17 +12,21 @@ $commentData = [];
         <?php
         if (!empty($commentLists)):
             foreach ($commentLists as $key => $item):
+//                echo "<pre>";
+//                print_r( $item);
+//                echo "</pre>";
                 $commentData[$item['id']] = $item;
                 if (!empty($item['user_id'])){
                     $item['name'] = $item['fullname'];
                     $item['email'] = $item['user_email'];
                     $commentLists[$key] = $item;
                 }
+
                 if ($item['parent_id']==0):
 
         ?>
         <!-- Single Comments -->
-        <div class="single-comments">
+        <div class="single-comments" id="">
             <div class="main">
                 <div class="head">
                     <img src="<?php echo getAvatar($item['email']); ?>" alt="#">

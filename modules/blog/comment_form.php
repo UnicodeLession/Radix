@@ -1,5 +1,5 @@
 <?php
-
+$commentData =[];
 $commentName = null;
 if (!empty(getBody('get')['comment_id'])){
     $commentId = getBody('get')['comment_id'];
@@ -12,7 +12,7 @@ if (!empty(isLogin())){
 
 if (isPost()){
 
-    $body = getBody(); //Lấy tất cả dữ liệu trong form
+    $body = getBody('post'); //Lấy tất cả dữ liệu trong form
 
     $errors = [];
 
@@ -41,10 +41,9 @@ if (isPost()){
         $errors['content']['required'] = 'Nội dung bình luận không được để trống';
     }else{
         if (strlen(trim($body['content']))<10){
-            $errors['content']['min'] = 'Tên phải >= 10 ký tự';
+            $errors['content']['min'] = 'Nội Dung phải >= 10 ký tự';
         }
     }
-
     if (empty($errors)){
 
         //Lưu tất cả thông tin vào cookie
@@ -61,10 +60,10 @@ if (isPost()){
         //Xử lý submit
         $dataInsert = [
             'content' => trim(strip_tags($body['content'])),
-            'parent_id' => 0,
+            'parent_id' => !empty($commentId)? $commentId : 0,
             'blog_id' => $id,
             'user_id' => !empty($userId)?$userId:NULL,
-            'status' => 0,
+            'status' => (!empty($userId) || !empty($commentId))? 1 : 0,
             'create_at' => date('Y-m-d H:i:s')
         ];
 
@@ -76,21 +75,21 @@ if (isPost()){
 
         }
 
-        if (!empty($commentId)){
-            $dataInsert['parent_id'] = $commentId;
-            $dataInsert['status'] = 1; //bỏ duyệt khi trả lời
-        }
 
         $insertStatus = insert('comments', $dataInsert);
 
         if ($insertStatus){
-            if (empty($commentId)){
-                setFlashData('msg', 'Bình luận đã được gửi đi thành công. Vui lòng chờ duyệt');
-            }else{
+            if ($dataInsert['status'] == 1) {
                 setFlashData('msg', 'Bình luận đã được gửi đi thành công');
+                setFlashData('msg_type', 'success');
+//                dịch chuyển đến
+
+            } else {
+                setFlashData('msg', 'Bình luận đã được gửi đi thành công. Vui lòng chờ duyệt');
+                setFlashData('msg_type', 'success');
+
             }
 
-            setFlashData('msg_type', 'success');
 
         }else{
             setFlashData('msg', 'Bạn không thể gửi bình luận vào lúc này! Vui lòng thử lại sau.');
@@ -120,6 +119,7 @@ if (!empty($_COOKIE['commentInfo'])){
     $commentInfo = json_decode($_COOKIE['commentInfo'], true);
 }
 ?>
+
 <div class="comments-form" id="comment-form">
     <h2 class="title"><?php echo (!empty($commentName))?'Trả lời bình luận: '.$commentName.' <a href="'._WEB_HOST_ROOT.'?module=blog&action=detail&id='.$id.'"><i class="fa fa-times"></i> Huỷ</a>':'Viết bình luận'; ?></h2>
 
