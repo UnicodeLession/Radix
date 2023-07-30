@@ -1,15 +1,15 @@
 <?php
 if (!defined('_INCODE')) die('Access Deined...');
 $data = [
-    'pageTitle' => getOption('about_title')
+    'pageTitle' => getOption('portfolio_title')
 ];
 
 layout('header', 'client', $data);
 
 layout('breadcrumb', 'client', $data);
 
-require_once _WEB_PATH_ROOT.'/modules/home/contents/about.php';
+$isPortfolioPage = true;
 
-require_once _WEB_PATH_ROOT.'/modules/home/contents/partner.php';
+require_once _WEB_PATH_ROOT.'/modules/home/contents/portfolio.php';
 
 layout('footer', 'client');

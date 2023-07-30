@@ -469,3 +469,109 @@ if (addPartnerObject!==null && partnerWrapperObject!==null) {
 
 }
 
+
+const teamItemHtml = ` <div class="team-item" style=" margin-bottom: 10px ; border: 3px outset  #f5f5f5;">
+                                     <div class="row">
+                                        <div class="" style="padding-left: 8px; margin-right: 10px; ">
+                                            <span class="btn btn-info " style="margin-bottom: 10px; width: 6%%">Thành Viên (chưa thêm)</span>
+                                        </div>
+                                        <div class="" style="width: 4%;margin-top: 4px;">
+                                            <a href="#" class="btn btn-danger btn-sm btn-block remove" style="" >Xóa</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="">Tên</label>
+                                                        <input type="text" class="form-control" name="team_content[name][]" placeholder="Tên..." value=""/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="">Chức vụ</label>
+                                                        <input type="text" class="form-control" name="team_content[position][]" placeholder="Chức vụ..." value=""/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="">Ảnh</label>
+                                                        <div class="row ckfinder-group">
+                                                            <div class="col-10">
+                                                                <input type="text" class="form-control image-render" name="team_content[image][]" placeholder="Đường dẫn ảnh..." value=""/>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <button type="button" class="btn btn-success btn-block choose-image"><i class="fa fa-upload" aria-hidden="true"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="">Facebook</label>
+                                                        <input type="text" class="form-control" name="team_content[facebook][]" placeholder="Facebook..." value=""/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="">Twitter</label>
+                                                        <input type="text" class="form-control" name="team_content[twitter][]" placeholder="Twitter..." value=""/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="">LinkedIn</label>
+                                                        <input type="text" class="form-control" name="team_content[linkedin][]" placeholder="LinkedIn..." value=""/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="">Behance</label>
+                                                        <input type="text" class="form-control" name="team_content[behance][]" placeholder="Behance..." value=""/>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!--End .team-item-->`
+const addTeamObject = document.querySelector('.add-team');
+const teamWrapperObject = document.querySelector('.team-wrapper');
+if (addTeamObject!==null && teamWrapperObject!==null) {
+    addTeamObject.addEventListener('click', function () {
+        let teamItemHtmlNode = new DOMParser().parseFromString(teamItemHtml, 'text/html').querySelector('.team-item');
+
+        teamWrapperObject.appendChild(teamItemHtmlNode);
+
+        openCkfinder();
+
+    });
+
+    teamWrapperObject.addEventListener('click', function (e) {
+        e.preventDefault(); //Ngăn tình trạng mặc định html (Thẻ a)
+        if (e.target.classList.contains('remove') || e.target.parentElement.classList.contains('remove')) {
+
+            if (confirm('Bạn có chắc chắn muốn xoá?')) {
+                let teamItem = e.target;
+                while (teamItem) {
+
+                    teamItem = teamItem.parentElement;
+
+                    if (teamItem.classList.contains('team-item')) {
+                        break;
+                    }
+                }
+
+                if (teamItem !== null) {
+                    teamItem.remove();
+                }
+
+            }
+        }
+    });
+
+}

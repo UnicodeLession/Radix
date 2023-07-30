@@ -218,8 +218,13 @@ function getMsg($msg, $type='success'){
 }
 
 //Hàm chuyển hướng
-function redirect($path='index.php'){
-    $url = _WEB_HOST_ROOT.'/'.$path;
+function redirect($path='index.php', $fullUrl = false){
+    if (empty($fullUrl)){
+        $url = _WEB_HOST_ROOT.'/'.$path;
+    }else{
+        $url = $path;
+    }
+
     header("Location: $url");
     exit;
 }
@@ -336,8 +341,17 @@ function isFontIcon($input){
 }
 
 function getLinkQueryString($key, $value){
-    $queryString = $_SERVER['QUERY_STRING'];
+    $queryString = $_SERVER['QUERY_STRING']; //lấy đằng sau dấu ?
+    // phá str thành array
+/*
+ * vd: module=auth&action=login
+ * => queryArr = [
+ *      'module' => 'auth',
+ *      'action' => 'login'
+ * ]
+ * */
     $queryArr = explode('&', $queryString);
+//bỏ phần tử trống
     $queryArr = array_filter($queryArr);
 
     $queryFinal = '';
@@ -508,10 +522,9 @@ function getOption($key, $type=''){
  *
  * */
 
-function updateOptions($data=[]){
+function updateOptions($data=[], $errors=[]){
     if (isPost()){
         $allFields = getBody();
-
         if (!empty($data)){
             $keyDataArr = array_keys($data);
             $valueDataArr = array_values($data);
@@ -562,4 +575,149 @@ function head(){
 
 function foot(){
 
+}
+
+function loadError($name='404'){
+    $pathError = _WEB_PATH_ROOT.'/modules/errors/'.$name.'.php';
+    require_once $pathError;
+    die();
+}
+
+function getYoutubeId($url){
+
+    $result = [];
+
+    $urlStr = parse_url($url, PHP_URL_QUERY);
+
+    parse_str($urlStr, $result);
+
+    if (!empty($result['v'])){
+        return $result['v'];
+    }
+
+    return false;
+}
+
+//Hàm cắt chữ
+function getLimitText($content, $limit=20){
+    $content = strip_tags($content);
+    $content = trim($content);
+    $contentArr = explode(' ', $content);
+    $contentArr = array_filter($contentArr);
+    $wordsNumber = count($contentArr); //trả về số lượng phần tử mảng
+    if ($wordsNumber>$limit){
+        $contentArrLimit = explode(' ', $content, $limit+1);
+        array_pop($contentArrLimit);
+
+        $limitText = implode(' ', $contentArrLimit).'...';
+
+        return $limitText;
+    }
+
+    return $content;
+}
+
+//Hàm tăng lượt view
+
+function setView($id){
+
+    $blog = firstRaw('SELECT view_count FROM blog WHERE id='.$id);
+
+    $check = false;
+
+    if (!empty($blog)){
+        $view = $blog['view_count'];
+        $view++;
+        $check = true;
+    }else{
+        if (is_array($blog)){
+            $view = 1;
+            $check = true;
+        }
+    }
+
+    if ($check) {
+        update('blog', [
+            'view_count' => $view
+        ], "id=$id");
+    }
+}
+
+//Lấy avatar từ gravatar
+
+function getAvatar($email, $size=null){
+    $hashGravatar = md5($email);
+    if (!empty($size)){
+        $avatarUrl = 'https://www.gravatar.com/avatar/'.$hashGravatar.'?s='.$size;
+    }else{
+        $avatarUrl = 'https://www.gravatar.com/avatar/'.$hashGravatar;
+    }
+
+    return $avatarUrl;
+}
+
+function getCommentList($commentData, $parentId, $id){
+    if (!empty($commentData)){
+        echo '<div class="comment-children">';
+        foreach ($commentData as $key => $item){
+            if ($item['parent_id']==$parentId){
+                ?>
+                <div class="comment-list">
+                    <div class="head">
+                        <img src="<?php echo getAvatar($item['email']); ?>" alt="#">
+                    </div>
+                    <div class="body">
+                        <h4><?php echo $item['name']; echo !empty($item['user_id'])?' <span class="badge badge-danger">'.$item['group_name'].'</span>':false; ?></h4>
+                        <div class="comment-info">
+                            <p><span><?php echo getDateFormat($item['create_at'], 'd/m/Y'); ?> vào <i class="fa fa-clock-o"></i> <?php echo getDateFormat($item['create_at'], 'H:i'); ?>,</span><a href="<?php echo _WEB_HOST_ROOT.'?module=blog&action=detail&id='.$id.'&comment_id='.$item['id']; ?>#comment-form"><i class="fa fa-comment-o"></i>Trả lời</a></p>
+                        </div>
+                        <p><?php echo $item['content']; ?></p>
+                    </div>
+                </div>
+                <?php
+                getCommentList($commentData, $item['id'], $id);
+                unset($commentData[$key]);
+            }
+        }
+        echo '</div>';
+    }
+}
+
+function getComment($commentId){
+    $commentData = firstRaw("SELECT * FROM comments WHERE id=$commentId");
+    return $commentData;
+}
+
+//Đệ quy lấy tất cả trả lời của 1 comment => gán vào mảng
+function getCommentReply($commentData, $parent_id, &$result=[]){
+    if (!empty($commentData)){
+        foreach ($commentData as $key => $item){
+            if ($parent_id==$item['parent_id']){
+                $result[] = $item['id'];
+                getCommentReply($commentData, $item['id'], $result);
+                unset($commentData[$key]);
+            }
+        }
+    }
+
+    return $result;
+}
+
+//Lấy số lượng comment theo trạng thái
+
+function getCommentCount($status=0){
+    $sql = "SELECT id FROM comments WHERE status=$status";
+    return getRows($sql);
+}
+
+//Lấy thông tin của phòng ban
+function getContactType($typeId){
+    $sql = "SELECT * FROM contact_type WHERE id=$typeId";
+    return firstRaw($sql);
+}
+
+//Lấy số lượng đăng ký nhận tin theo trạng thái
+function getSubscribe($status=0){
+    $sql = "SELECT id FROM subscribe WHERE status=$status";
+    return getRows($sql);
 }

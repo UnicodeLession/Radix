@@ -87,18 +87,19 @@
                         <!-- Search Form -->
                         <div class="search-form active">
                             <a class="icon" href="#"><i class="fa fa-search"></i></a>
-                            <form class="form" action="#">
-                                <input placeholder="<?php echo getOption('header_search_placeholder'); ?>" type="search">
+                            <form class="form"  method="get" action="<?php echo _WEB_HOST_ROOT; ?>">
+                                <input placeholder="<?php echo getOption('header_search_placeholder'); ?>" type="search" value="<?php echo !empty(getBody()['keyword'])?getBody()['keyword']:false; ?>" name="keyword">
+                                <input type="hidden" name="module" value="search" />
                             </form>
                         </div>
                         <!--/ End Search Form -->
                         <!-- Social -->
                         <ul class="social">
-                            <li><a href="<?php echo getOption('general_twitter'); ?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="<?php echo getOption('general_facebook'); ?>"target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="<?php echo getOption('general_linkedin'); ?>"target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="<?php echo getOption('general_behance'); ?>"target="_blank"><i class="fa fa-behance"></i></a></li>
-                            <li><a href="<?php echo getOption('general_youtube'); ?>"target="_blank"><i class="fa fa-youtube"></i></a></li>
+                            <li><a target="_blank" href="<?php echo getOption('general_twitter'); ?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a target="_blank" href="<?php echo getOption('general_facebook'); ?>"target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a target="_blank" href="<?php echo getOption('general_linkedin'); ?>"target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a target="_blank" href="<?php echo getOption('general_behance'); ?>"target="_blank"><i class="fa fa-behance"></i></a></li>
+                            <li><a target="_blank" href="<?php echo getOption('general_youtube'); ?>"target="_blank"><i class="fa fa-youtube"></i></a></li>
                         </ul>
                         <!--/ End Social -->
                     </div>
@@ -115,16 +116,19 @@
                     <!-- Logo -->
                     <?php
                         $logo = getOption('header_logo');
-                    echo $logo
                     ?>
                     <div class="logo">
-                        <?php if(!empty($logo)) : ?>
-                            <a href="<?php echo _WEB_HOST_ROOT ?>"><img src="<?php echo $logo ?>" alt="logo"></a>
-                        <?php else: ?>
-                            <h1 style="color: white ;     margin: 8px 0 0 0;" >Logo</h1>
-                        <?php endif; ?>
+                        <a href="<?php echo _WEB_HOST_ROOT; ?>">
+                            <?php if (!empty($logo)): ?>
+                                <img src="<?php echo $logo; ?>" alt="logo">
+                            <?php else: ?>
+                                <h1 style="margin-top: 10px;"><?php echo getOption('general_sitename'); ?></h1>
+                            <?php endif; ?>
+                        </a>
                     </div>
-                    <div class="link"><a href="index.html"><span>R</span>adix</a></div>
+                    <div class="link"><a href="<?php echo _WEB_HOST_ROOT; ?>">
+                            <h1 style="margin-top: 10px;"><?php echo getOption('general_sitename'); ?></h1>
+                        </a></div>
                     <!--/ End Logo -->
 
 
@@ -132,20 +136,21 @@
                     <div class="mobile-menu"></div>
                 </div>
                 <div class="col-lg-10 col-12">
+
                     <!-- Main Menu -->
                     <div class="mainmenu">
                         <nav class="navigation">
                             <ul class="nav menu">
-                                <li class="active"><a href="index.html">Home</a></li>
+                                <li class="active"><a href="<?php echo _WEB_HOST_ROOT; ?>">Home</a></li>
                                 <li><a href="#">Pages<i class="fa fa-caret-down"></i></a>
                                     <ul class="dropdown">
-                                        <li><a href="?module=page-template&action=about">About Us</a></li>
-                                        <li><a href="?module=page-template&action=contact">Our Team</a></li>
+                                        <li><a href="?module=page_template&action=about">About Us</a></li>
+                                        <li><a href="?module=page_template&action=team">Our Team</a></li>
                                         <li><a href="pricing.html">Pricing</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="portfolio.html">Portfolio</a></li>
+                                <li ><a href="?module=services">Services</a></li>
+                                <li><a href="?module=portfolios">Portfolio</a></li>
                                 <li><a href="#">Blogs<i class="fa fa-caret-down"></i></a>
                                     <ul class="dropdown">
                                         <li><a href="blog.html">Blog layout</a></li>

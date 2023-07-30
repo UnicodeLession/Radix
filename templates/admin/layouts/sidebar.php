@@ -291,7 +291,6 @@ $userDetail = getUserInfo($userId);
                                 <p>Thiết lập chung</p>
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a href="<?php echo _WEB_HOST_ROOT_ADMIN.'?module=options&action=header'; ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -312,6 +311,49 @@ $userDetail = getUserInfo($userId);
                                 <p>Thiết lập trang chủ</p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="<?php echo _WEB_HOST_ROOT_ADMIN.'?module=options&action=about'; ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thiết lập giới thiệu</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?php echo _WEB_HOST_ROOT_ADMIN.'?module=options&action=team'; ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thiết lập Team</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?php echo _WEB_HOST_ROOT_ADMIN.'?module=options&action=services'; ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thiết lập dịch vụ</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?php echo _WEB_HOST_ROOT_ADMIN.'?module=options&action=portfolios'; ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thiết lập dự án</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?php echo _WEB_HOST_ROOT_ADMIN.'?module=options&action=blog'; ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thiết lập blog</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?php echo _WEB_HOST_ROOT_ADMIN.'?module=options&action=contact'; ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thiết lập liên hệ</p>
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
                 <!--

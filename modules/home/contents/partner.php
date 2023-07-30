@@ -32,7 +32,7 @@ if (!empty($partnerJson)){
                                 ?>
                                 <!-- Single Partner -->
                                 <div class="col-lg-2 col-md-3 col-12">
-                                    <div class="single-partner">
+                                    <div class="single-partner ">
                                         <a href="<?php echo $item['link']; ?>" target="_blank"><img src="<?php echo $item['logo']; ?>" alt="#"></a>
                                     </div>
                                 </div>

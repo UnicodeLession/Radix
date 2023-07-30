@@ -72,10 +72,6 @@ if (isPost()) {
 
         if ($insertStatus){
 
-            setFlashData('msg', 'Liên hệ đã được gửi đi thành công. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.');
-
-            setFlashData('msg_type', 'success');
-
             $contactType = getContactType($dataInsert['type_id']);
 
             $siteName = getOption('general_sitename');
@@ -109,6 +105,10 @@ if (isPost()) {
 
             sendMail(getOption('general_email'), $subjectAdmin, $contentAdmin);
 
+            setFlashData('msg', 'Liên hệ đã được gửi đi thành công. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.');
+            setFlashData('msg_type', 'success');
+            redirect('?module=page_template&action=contact');
+
         }else{
             setFlashData('msg', 'Không không thể gửi liên hệ lúc này. Vui lòng thử lại sau.');
             setFlashData('msg_type', 'danger');
@@ -120,7 +120,7 @@ if (isPost()) {
         setFlashData('errors', $errors);
     }
 
-    redirect('?module=page-template&action=contact');
+    redirect('?module=page_template&action=contact');
 }
 
 $msg = getFlashData('msg');
@@ -220,22 +220,22 @@ $errors = getFlashData('errors');
                                     <ul class="social">
                                         <?php
                                         if (!empty($facebook)){
-                                            echo '<li class="active"><a href="'.$facebook.'"><i class="fa fa-facebook"></i>Like Us facebook</a></li>';
+                                            echo '<li class="active"><a href="'.$facebook.'"><i class="fa fa-facebook"></i>Like Us Facebook</a></li>';
                                         }
 
                                         if (!empty($twitter)){
-                                            echo '<li><a href="'.$twitter.'"><i class="fa fa-twitter"></i>Follow Us twitter</a></li>';
+                                            echo '<li><a href="'.$twitter.'"><i class="fa fa-twitter"></i>Follow Us Twitter</a></li>';
 
                                         }
 
                                         if (!empty($linkedin)){
-                                            echo '<li><a href="'.$linkedin.'"><i class="fa fa-linkedin"></i>Follow Us linkedin</a></li>';
+                                            echo '<li><a href="'.$linkedin.'"><i class="fa fa-linkedin"></i>Follow Us Linkedin</a></li>';
 
                                         }
 
                                         if (!empty($behance)){
                                             echo '
-                                        <li><a href="'.$behance.'"><i class="fa fa-behance"></i>Follow Us behance</a></li>';
+                                        <li><a href="'.$behance.'"><i class="fa fa-behance"></i>Follow Us Behance</a></li>';
 
                                         }
 
@@ -245,8 +245,6 @@ $errors = getFlashData('errors');
 
                                         }
                                         ?>
-
-
 
                                     </ul>
                                     <!--/ End Social -->
