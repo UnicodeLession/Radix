@@ -38,7 +38,7 @@ if (isPost()){
     //Validate tên blog: Bắt buộc nhập
 
     if (empty(trim($body['title']))){
-        $errors['name']['required'] = 'Tên blog bắt buộc phải nhập';
+        $errors['title']['required'] = 'Tên blog bắt buộc phải nhập';
     }
 
     //Validate slug: Bắt buộc nhập
@@ -63,8 +63,8 @@ if (isPost()){
     
 
     //Validate danh mục: Bắt buộc chọn
-    if (empty($body['blog_category_id'])){
-        $errors['blog_category_id']['required'] = 'Danh mục bắt buộc phải chọn';
+    if (empty($body['category_id'])){
+        $errors['category_id']['required'] = 'Danh mục bắt buộc phải chọn';
     }
 
 
@@ -73,10 +73,10 @@ if (isPost()){
         //Không có lỗi xảy ra
 
         $dataInsert = [
-            'name' => trim($body['name']),
+            'title' => trim($body['title']),
             'slug' => trim($body['slug']),
             'thumbnail' => trim($body['thumbnail']),
-            'blog_category_id' => trim($body['blog_category_id']),
+            'category_id' => trim($body['category_id']),
             'content' => trim($body['content']),
             'description' => trim($body['description']),
             'update_at' => date('Y-m-d H:i:s')
@@ -163,7 +163,7 @@ if (empty($old) && !empty($blogDetail)){
                 
                 <div class="form-group">
                     <label for="">Danh mục</label>
-                    <select name="blog_category_id" class="form-control">
+                    <select name="category_id" class="form-control">
                         <option value="0">Chọn danh mục</option>
                         <?php
                         foreach ($allBlog_categories as $item){

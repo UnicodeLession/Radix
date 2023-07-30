@@ -151,10 +151,10 @@
                                 </li>
                                 <li ><a href="?module=services">Services</a></li>
                                 <li><a href="?module=portfolios">Portfolio</a></li>
-                                <li><a href="#">Blogs<i class="fa fa-caret-down"></i></a>
+                                <li><a href="?module=blog">Blogs<i class="fa fa-caret-down"></i></a>
                                     <ul class="dropdown">
-                                        <li><a href="blog.html">Blog layout</a></li>
-                                        <li><a href="blog-single.html">Blog Single</a></li>
+                                        <li><a href="?module=blog">Blog layout</a></li>
+                                        <li><a href="#">Blog Single</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="contact.html">Contact</a></li>
