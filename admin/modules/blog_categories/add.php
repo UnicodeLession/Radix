@@ -74,7 +74,7 @@ $old = getFlashData('old');
         <label for="">Đường dẫn tĩnh</label>
         <input type="text" class="form-control render-slug" name="slug" placeholder="Đường dẫn tĩnh..." value="<?php echo old('slug', $old); ?>"/>
         <?php echo form_error('slug', $errors, '<span class="error">', '</span>'); ?>
-        <p class="render-link"><b>Link</b>: <span></span></p>
+        <p class="render-link"><b>Demo Link</b>: <span></span></p>
     </div>
 
     <button type="submit" class="btn btn-primary">

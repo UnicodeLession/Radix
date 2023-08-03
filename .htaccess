@@ -1,0 +1,8 @@
+# https://xuanthulab.net/bieu-thuc-chinh-quy-regexp.html
+# https://xuanthulab.net/su-dung-mod-rewrite-trong-apache-de-viet-lai-url-trong-config-va-trong-htaccess.html
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^du-an\.html$ index.php?module=portfolios
+RewriteRule ^(.+)$ index.php/$1 [L,QSA]
