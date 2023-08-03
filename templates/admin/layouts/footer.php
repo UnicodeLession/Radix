@@ -36,13 +36,17 @@
 <!-- jQuery Knob Chart -->
 <script src="<?php echo _WEB_HOST_ADMIN_TEMPLATE; ?>/assets/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
+
 <script src="<?php echo _WEB_HOST_ADMIN_TEMPLATE; ?>/assets/plugins/moment/moment.min.js"></script>
 <script src="<?php echo _WEB_HOST_ADMIN_TEMPLATE; ?>/assets/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
+<!-- Tempusdominsus Bootstrap 4 -->
 <script src="<?php echo _WEB_HOST_ADMIN_TEMPLATE; ?>/assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
 <script src="<?php echo _WEB_HOST_ADMIN_TEMPLATE; ?>/assets/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
+<script src="<?php echo _WEB_HOST_ADMIN_TEMPLATE; ?>/assets/js/jquery-menu-editor.min.js"></script>
+<script src="<?php echo _WEB_HOST_ADMIN_TEMPLATE; ?>/assets/js/bootstrap-iconpicker.min.js"></script>
+
 <script src="<?php echo _WEB_HOST_ADMIN_TEMPLATE; ?>/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 
 <script src="<?php echo _WEB_HOST_ADMIN_TEMPLATE; ?>/assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>

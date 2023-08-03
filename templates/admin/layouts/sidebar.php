@@ -271,9 +271,34 @@ $userDetail = getUserInfo($userId);
                 <!--
                 Quản lý liên hệ - End
                 -->
+<!--                Quản lý bình luận - Begin-->
+                <li class="nav-item">
+                    <a href="<?php echo _WEB_HOST_ROOT_ADMIN.'?module=comments'; ?>" class="nav-link <?php echo activeMenuSidebar('comments')?'active':false; ?>">
+                        <i class="nav-icon fas fa-comment-dots"></i>
+                        <p>
+                            Quản lý bình luận <span class="badge badge-danger"><?php echo getCommentCount(); ?></span>
+                        </p>
+                    </a>
+                </li>
+                <!--
+                Quản lý bình luận - End -->
 
                 <!--
-                Quản lý người dùng - Begin
+               Quản lý đăng ký nhận tin - Begin
+               -->
+                <li class="nav-item">
+                    <a href="<?php echo _WEB_HOST_ROOT_ADMIN.'?module=subscribe'; ?>" class="nav-link <?php echo activeMenuSidebar('subscribe')?'active':false; ?>">
+                        <i class="nav-icon far fa-folder-open"></i>
+                        <p>
+                            Đăng ký nhận tin <span class="badge badge-danger"><?php echo getSubscribe(); ?></span>
+                        </p>
+                    </a>
+                </li>
+                <!--
+                Quản lý đăng ký nhận tin - End
+                -->
+
+                <!-- Quản lý người dùng - Begin
                 -->
                 <li class="nav-item has-treeview <?php echo activeMenuSidebar('options')?'menu-open':false; ?>">
                     <a href="#" class="nav-link <?php echo activeMenuSidebar('options')?'active':false; ?>">
@@ -351,6 +376,12 @@ $userDetail = getUserInfo($userId);
                             <a href="<?php echo _WEB_HOST_ROOT_ADMIN.'?module=options&action=contact'; ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thiết lập liên hệ</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo _WEB_HOST_ROOT_ADMIN.'?module=options&action=menu'; ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thiết lập menu</p>
                             </a>
                         </li>
 

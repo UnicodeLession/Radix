@@ -45,7 +45,7 @@ $listBlog = getRaw("SELECT title, description, blog.id, thumbnail, view_count, b
 ?>
     <section class="blogs-main archives section">
         <div class="container">
-            <h3>Đã tìm thấy <?php echo $allBlogNum; ?> kết quả</h3>
+            <h3 style="margin-bottom: 30px;">Đã tìm thấy <?php echo $allBlogNum; ?> kết quả</h3>
             <?php
             if (!empty($listBlog)):
                 ?>

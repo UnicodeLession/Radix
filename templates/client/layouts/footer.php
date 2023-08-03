@@ -162,7 +162,7 @@ $errors = getFlashData('errors');
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnhgNBg6jrSuqhTeKKEFDWI0_5fZLx0vM"></script>
 <script src="<?php echo _WEB_HOST_TEMPLATE; ?>/js/gmap.min.js"></script>
 <!-- Main JS -->
-<script src="<?php echo _WEB_HOST_TEMPLATE; ?>/js/main.js?ver=<?php echo rand(); ?>"></script>
+<script src="<?php echo _WEB_HOST_TEMPLATE; ?>/js/main.js         "></script>
 <?php
 foot();
 ?>

@@ -94,7 +94,7 @@ $avatarUrl = 'https://www.gravatar.com/avatar/'.$hashGravatar.'?s=400';
                             </div>
                             <!-- End Single Blog -->
                         </div>
-                        <div class="col-12">
+                        <div class="col-12" id="author-form">
                             <div class="author-details">
                                 <div class="author-left">
                                     <img src="<?php echo $avatarUrl; ?>" alt="#">
@@ -117,6 +117,7 @@ $avatarUrl = 'https://www.gravatar.com/avatar/'.$hashGravatar.'?s=400';
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-12">
                             <?php
                             require_once _WEB_PATH_ROOT.'/modules/blog/comment_lists.php';
@@ -127,6 +128,9 @@ $avatarUrl = 'https://www.gravatar.com/avatar/'.$hashGravatar.'?s=400';
                             require_once _WEB_PATH_ROOT.'/modules/blog/comment_form.php';
                             ?>
                         </div>
+<!--                        <div class="col-12">-->
+<!--                            --><?php //require_once _WEB_PATH_ROOT.'/modules/blog/test.php'?>
+<!--                        </div>-->
                     </div>
                 </div>
             </div>

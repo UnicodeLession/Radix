@@ -74,10 +74,10 @@ if (isPost()) {
 
             $contactType = getContactType($dataInsert['type_id']);
 
-            $siteName = getOption('general_sitename');
+            $siteName = (getOption('general_sitename'));
 
             //Gửi email cho khách hàng
-            $subjectCustomer = '['.$siteName.'] Cảm ơn bạn đã gửi liên hệ';
+            $subjectCustomer = '[ '.$siteName.' ] Cảm ơn bạn đã gửi liên hệ';
             $contentCustomer = '<p>Chào <b>'.$dataInsert['fullname'].'</b></p>';
             $contentCustomer.='<p>Cảm ơn bạn đã gửi liên hệ cho chúng tôi. Dưới đây là thông tin của bạn</p>';
             $contentCustomer.='
@@ -93,7 +93,7 @@ if (isPost()) {
             sendMail($dataInsert['email'], $subjectCustomer, $contentCustomer);
 
             //Gửi email cho admin
-            $subjectAdmin = '['.$siteName.'] '.$dataInsert['fullname'].' gửi liên hệ';
+            $subjectAdmin = '[ '.$siteName.' ] '.$dataInsert['fullname'].' gửi liên hệ';
             $contentAdmin = '
                 <p>Họ và tên: '.$dataInsert['fullname'].'</p>
                 <p>Email: '.$dataInsert['email'].'</p>

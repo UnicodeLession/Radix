@@ -1,9 +1,9 @@
 <?php
-$commentData =[];
+
 $commentName = null;
 if (!empty(getBody('get')['comment_id'])){
     $commentId = getBody('get')['comment_id'];
-    $commentName = $commentData[$commentId]['name'];
+    $commentName = $commentData[$commentId]['name']; //tên thằng đang trả lời
 }
 
 if (!empty(isLogin())){
@@ -12,7 +12,7 @@ if (!empty(isLogin())){
 
 if (isPost()){
 
-    $body = getBody('post'); //Lấy tất cả dữ liệu trong form
+    $body = getBody(); //Lấy tất cả dữ liệu trong form
 
     $errors = [];
 
@@ -41,9 +41,10 @@ if (isPost()){
         $errors['content']['required'] = 'Nội dung bình luận không được để trống';
     }else{
         if (strlen(trim($body['content']))<10){
-            $errors['content']['min'] = 'Nội Dung phải >= 10 ký tự';
+            $errors['content']['min'] = 'Tên phải >= 10 ký tự';
         }
     }
+
     if (empty($errors)){
 
         //Lưu tất cả thông tin vào cookie
@@ -60,10 +61,10 @@ if (isPost()){
         //Xử lý submit
         $dataInsert = [
             'content' => trim(strip_tags($body['content'])),
-            'parent_id' => !empty($commentId)? $commentId : 0,
+            'parent_id' =>!empty($commentId) ? $commentId : 0,
             'blog_id' => $id,
             'user_id' => !empty($userId)?$userId:NULL,
-            'status' => (!empty($userId) || !empty($commentId))? 1 : 0,
+            'status' => ( !empty($userId) || !empty($commentId))? 1 : 0,
             'create_at' => date('Y-m-d H:i:s')
         ];
 
@@ -79,17 +80,14 @@ if (isPost()){
         $insertStatus = insert('comments', $dataInsert);
 
         if ($insertStatus){
-            if ($dataInsert['status'] == 1) {
+            if ($dataInsert['status'] == 1){
                 setFlashData('msg', 'Bình luận đã được gửi đi thành công');
-                setFlashData('msg_type', 'success');
-//                dịch chuyển đến
 
-            } else {
+            }else{
                 setFlashData('msg', 'Bình luận đã được gửi đi thành công. Vui lòng chờ duyệt');
-                setFlashData('msg_type', 'success');
-
             }
 
+            setFlashData('msg_type', 'success');
 
         }else{
             setFlashData('msg', 'Bạn không thể gửi bình luận vào lúc này! Vui lòng thử lại sau.');
@@ -119,7 +117,6 @@ if (!empty($_COOKIE['commentInfo'])){
     $commentInfo = json_decode($_COOKIE['commentInfo'], true);
 }
 ?>
-
 <div class="comments-form" id="comment-form">
     <h2 class="title"><?php echo (!empty($commentName))?'Trả lời bình luận: '.$commentName.' <a href="'._WEB_HOST_ROOT.'?module=blog&action=detail&id='.$id.'"><i class="fa fa-times"></i> Huỷ</a>':'Viết bình luận'; ?></h2>
 
@@ -137,24 +134,24 @@ if (!empty($_COOKIE['commentInfo'])){
     <form class="form" method="post" action="">
         <div class="row">
             <?php if (empty($userId)): ?>
-            <div class="col-lg-4 col-12">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Tên của bạn..." value="<?php echo old('name',$commentInfo); ?>"/>
-                    <?php echo form_error('name', $errors, '<span class="error">', '</span>'); ?>
+                <div class="col-lg-4 col-12">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Tên của bạn..." value="<?php echo old('name',$commentInfo); ?>"/>
+                        <?php echo form_error('name', $errors, '<span class="error">', '</span>'); ?>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-12">
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Email của bạn..." value="<?php echo old('email',$commentInfo); ?>">
-                    <?php echo form_error('email', $errors, '<span class="error">', '</span>'); ?>
+                <div class="col-lg-4 col-12">
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email của bạn..." value="<?php echo old('email',$commentInfo); ?>">
+                        <?php echo form_error('email', $errors, '<span class="error">', '</span>'); ?>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-12">
-                <div class="form-group">
-                    <input type="url" name="website" placeholder="Website của bạn..." value="<?php echo old('website',$commentInfo); ?>">
+                <div class="col-lg-4 col-12">
+                    <div class="form-group">
+                        <input type="url" name="website" placeholder="Website của bạn..." value="<?php echo old('website',$commentInfo); ?>">
 
+                    </div>
                 </div>
-            </div>
             <?php endif; ?>
             <div class="col-12">
                 <div class="form-group">

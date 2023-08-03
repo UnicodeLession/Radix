@@ -420,7 +420,7 @@ function setExceptionError($exception) {
         //removeSession('debug_error');
         require_once _WEB_PATH_ROOT . '/modules/errors/500.php';
     }
-
+    die();
 }
 
 function setErrorHandler($errno, $errstr, $errfile, $errline){
@@ -448,7 +448,7 @@ function setErrorHandler($errno, $errstr, $errfile, $errline){
         }else{
             redirect(getPath());
         }
-
+        die();
     }else{
         //removeSession('reload');
     }
@@ -720,4 +720,24 @@ function getContactType($typeId){
 function getSubscribe($status=0){
     $sql = "SELECT id FROM subscribe WHERE status=$status";
     return getRows($sql);
+}
+//Đổ dữ liệu menu
+function getMenu($dataMenu, $isSub = false){
+    if (!empty($dataMenu)){
+
+        echo ($isSub)?'<ul class="dropdown">':'<ul class="nav menu">';
+
+        foreach ($dataMenu as $key => $item){
+            echo '<li><a href="'.$item['href'].'" target="'.$item['target'].'" title="'.$item['title'].'">'.$item['text'].'</a>';
+
+            //Gọi đệ quy
+            if (!empty($item['children'])){
+                getMenu($item['children'], true);
+            }
+
+            echo '</li>';
+        }
+
+        echo '</ul>';
+    }
 }

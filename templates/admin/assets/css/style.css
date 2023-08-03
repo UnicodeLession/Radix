@@ -17,3 +17,6 @@
     padding-top: 10px;
     border-top: 2px solid #000;
 }
+.nav-sidebar .nav-link>.right, .nav-sidebar .nav-link >p>.right {
+    right: 1rem !important;
+}

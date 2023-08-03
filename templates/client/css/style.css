@@ -181,7 +181,7 @@ Version: 1.0
 	-moz-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 }
-.header .nav li.active a i, 
+.header .nav li.active a i,
 .header .nav li:hover a i {
 	opacity: 1;
 	visibility: visible;
@@ -276,7 +276,7 @@ Version: 1.0
 	transform:translateY(20px);
 }
 .header .nav .dropdown li:hover .dropdown.submenu{
-	
+
 	transform:translateY(0px);
 	opacity:1;
 	visibility:visible;
@@ -331,7 +331,7 @@ Version: 1.0
 }
 /*======================================
 	End Header CSS
-========================================*/ 
+========================================*/
 
 /*======================================
 	Hero Area CSS
@@ -519,7 +519,7 @@ Version: 1.0
 }
 .hero-area .owl-controls .owl-dots .owl-dot:hover span{
 	border-color:transparent;
-} 
+}
 .hero-area .owl-controls .owl-dots .owl-dot span::before {
 	position: absolute;
 	top: -2px;
@@ -759,15 +759,15 @@ Version: 1.0
 /* Slider Meta */
 .services.single .owl-controls .owl-dots {
 	position: absolute;
-    left: 6px;
-    background: #fff;
-    -webkit-box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.5);
-    -moz-box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.5);
-    box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.5);
-    top: 50%;
-    padding: 20px 15px;
-    margin-top: -47px;
-    border-radius: 5px;
+	left: 6px;
+	background: #fff;
+	-webkit-box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.5);
+	-moz-box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.5);
+	box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.5);
+	top: 50%;
+	padding: 20px 15px;
+	margin-top: -47px;
+	border-radius: 5px;
 }
 .services.single .owl-controls .owl-dots .owl-dot {
 	display: block;
@@ -790,7 +790,7 @@ Version: 1.0
 }
 .services.single .owl-controls .owl-dots .owl-dot:hover span{
 	border-color:transparent;
-} 
+}
 .services.single .owl-controls .owl-dots .owl-dot span::before {
 	position: absolute;
 	top: -2px;
@@ -860,7 +860,7 @@ Version: 1.0
 
 /*======================================
 	Why Choose CSS
-========================================*/ 
+========================================*/
 .why-choose {
 	position: relative;
 	background:#333;
@@ -970,11 +970,11 @@ Version: 1.0
 }
 /*======================================
 	End Why Choose CSS
-========================================*/ 
+========================================*/
 
 /*======================================
 	Portfolio CSS
-========================================*/ 
+========================================*/
 .portfolio {
 	background: #f6f6f6;
 	overflow: hidden;
@@ -1005,7 +1005,7 @@ Version: 1.0
 .portfolio .portfolio-nav ul li:last-child{
 	margin:0;
 }
-.portfolio .portfolio-nav ul li.active, 
+.portfolio .portfolio-nav ul li.active,
 .portfolio .portfolio-nav ul li:hover {
 	color: #fff;
 }
@@ -1039,7 +1039,7 @@ Version: 1.0
 	margin-left: -8px;
 	top: 90%;
 }
-.portfolio .portfolio-nav li.active .cbp-filter-counter, 
+.portfolio .portfolio-nav li.active .cbp-filter-counter,
 .portfolio .portfolio-nav li:hover .cbp-filter-counter{
 	opacity:1;
 	visibility:visible;
@@ -1053,7 +1053,7 @@ Version: 1.0
 }
 .portfolio .portfolio-head{
 	position:relative;
-} 
+}
 .portfolio .portfolio-head img{
 	width:100%;
 	z-index:10;
@@ -1159,21 +1159,21 @@ Version: 1.0
 }
 .portfolio.single .owl-nav div {
 	width: 50px;
-    height: 50px;
-    font-size: 25px;
-    border-radius: 0px;
-    opacity: 1;
-    position: absolute;
-    margin: -25px 0 0;
-    top: 50%;
-    transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+	height: 50px;
+	font-size: 25px;
+	border-radius: 0px;
+	opacity: 1;
+	position: absolute;
+	margin: -25px 0 0;
+	top: 50%;
+	transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
 	background:transparent;
-    line-height: 50px;
-    padding: 0;
-    border: 2px solid #fff;
-    border-radius: 100%;
+	line-height: 50px;
+	padding: 0;
+	border: 2px solid #fff;
+	border-radius: 100%;
 }
 .portfolio.single .owl-nav div.owl-prev{
 	left:-100px;
@@ -1256,11 +1256,11 @@ Version: 1.0
 }
 /*======================================
 	End Portfolio CSS
-========================================*/ 
+========================================*/
 
 /*======================================
 	Consulting CSS
-========================================*/ 
+========================================*/
 .consulting {
 	position: relative;
 	overflow: hidden;
@@ -1351,18 +1351,18 @@ Version: 1.0
 	padding-left:20px;
 }
 .consulting .form-group input::-webkit-input-placeholder {
-    opacity: 1;
-    color: #fff !important;
+	opacity: 1;
+	color: #fff !important;
 }
 
 .consulting .form-group input::-moz-placeholder {
-    opacity: 1;
-    color: #fff !important;
+	opacity: 1;
+	color: #fff !important;
 }
 
 .consulting .form-group input::-ms-input-placeholder {
-    opacity: 1;
-    color: #fff !important;
+	opacity: 1;
+	color: #fff !important;
 }
 .consulting .nice-select {
 	border:none;
@@ -1404,11 +1404,11 @@ Version: 1.0
 }
 /*======================================
 	End Consulting CSS
-========================================*/ 
+========================================*/
 
 /*======================================
 	Pricing Plan CSS
-========================================*/ 
+========================================*/
 .pricing-plan{
 	background:#f6f6f6;
 }
@@ -1516,11 +1516,11 @@ Version: 1.0
 }
 /*======================================
 	End Pricing Plan CSS
-========================================*/ 
+========================================*/
 
 /*======================================
 	Testimonials CSS
-========================================*/ 
+========================================*/
 .testimonials .single-nav {
 	text-align: center;
 	position:relative;
@@ -1604,11 +1604,11 @@ Version: 1.0
 }
 /*======================================
 	End Testimonials CSS
-========================================*/ 
+========================================*/
 
 /*======================================
 	Team CSS
-========================================*/ 
+========================================*/
 .team{
 	background:#f6f6f6;
 	position: relative;
@@ -1838,14 +1838,13 @@ Version: 1.0
 }
 /*======================================
 	End Team CSS
-========================================*/ 
+========================================*/
 
 /*======================================
 	Call to action CSS
-========================================*/ 
+========================================*/
 .call-to-action {
 	position: relative;
-	background-image: url('../images/call-to-action.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -1900,11 +1899,11 @@ Version: 1.0
 }
 /*======================================
 	End Call to action CSS
-========================================*/ 
+========================================*/
 
 /*======================================
 	Blogs CSS
-========================================*/ 
+========================================*/
 .blogs-main {
 	background: #f6f6f6;
 }
@@ -2045,8 +2044,8 @@ Version: 1.0
 	-webkit-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.10);
 	-moz-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.10);
 	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.10);
-} 
-.blogs-main.archives .pagination li.prev a, 
+}
+.blogs-main.archives .pagination li.prev a,
 .blogs-main.archives .pagination li.next a {
 	font-size: 15px;
 }
@@ -2485,7 +2484,7 @@ Version: 1.0
 }
 /*======================================
 	End Blogs CSS
-========================================*/ 
+========================================*/
 
 /*======================================
 	Partners CSS
@@ -2744,7 +2743,7 @@ Version: 1.0
 
 /*======================================
 	Faqs CSS
-========================================*/ 
+========================================*/
 .faqs-main .faq-area {
 	margin-top: 30px;
 }
@@ -2777,11 +2776,11 @@ Version: 1.0
 }
 /*======================================
 	End Faqs CSS
-========================================*/ 
+========================================*/
 
 /*======================================
 	404 CSS
-========================================*/ 
+========================================*/
 .error-page {
 	text-align: center;
 	background: #fff;
@@ -2834,11 +2833,11 @@ Version: 1.0
 }
 /*======================================
 	End 404 CSS
-========================================*/ 
+========================================*/
 
 /*======================================
 	Contact CSS
-========================================*/ 
+========================================*/
 .contact-us {
 	position: relative;
 	z-index: 43;
@@ -2878,7 +2877,7 @@ Version: 1.0
 	display: block;
 	margin: 0 0 25px;
 }
-.contact-us .form-group input, 
+.contact-us .form-group input,
 .contact-us .form-group .nice-select {
 	width: 100%;
 	height: 50px;
@@ -3002,11 +3001,11 @@ Version: 1.0
 }
 /*======================================
 	End Contact CSS
-========================================*/ 
+========================================*/
 
 /*======================================
 	Mail Send CSS
-========================================*/ 
+========================================*/
 .mail-success{
 	background:#f6f6f6;
 }
@@ -3031,7 +3030,7 @@ Version: 1.0
 }
 /*======================================
   End Mail Success CSS
-========================================*/ 
+========================================*/
 
 .pro-features {
 	position: fixed;
@@ -3098,13 +3097,13 @@ Version: 1.0
 	box-shadow: -4px 0px 5px #00000036;
 }
 .get-pro:hover{
-	
+
 }
 
 
 /*======================================
 	Footer CSS
-========================================*/  
+========================================*/
 .footer {
 	background-color: #333;
 	position: relative;
@@ -3161,7 +3160,7 @@ Version: 1.0
 }
 .footer .single-widget li:hover a{
 	padding-left:5px;
-} 
+}
 /* About Widget */
 .footer .single-widget.about{}
 .footer .single-widget.about p {
@@ -3207,30 +3206,30 @@ Version: 1.0
 }
 .footer .single-widget.newsletter input {
 	width: 100%;
-    padding: 10px 25px;
-    color: #eee;
-    border-radius: 0px;
-    text-transform: capitalize;
-    margin-bottom: 10px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 3px;
-    border: none;
-    box-shadow: none;
+	padding: 10px 25px;
+	color: #eee;
+	border-radius: 0px;
+	text-transform: capitalize;
+	margin-bottom: 10px;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 3px;
+	border: none;
+	box-shadow: none;
 	-webkit-transition:all 0.3s ease;
 	-moz-transition:all 0.3s ease;
 	transition:all 0.3s ease;
 }
 .footer .single-widget.newsletter input::-webkit-input-placeholder {
-    opacity: 1;
-    color: #bbb !important;
+	opacity: 1;
+	color: #bbb !important;
 }
 .footer .single-widget.newsletter input::-moz-placeholder {
-    opacity: 1;
-    color: #bbb !important;
+	opacity: 1;
+	color: #bbb !important;
 }
 .footer .single-widget.newsletter::-ms-input-placeholder {
-    opacity: 1;
-    color: #bbb !important;
+	opacity: 1;
+	color: #bbb !important;
 }
 .footer .single-widget.newsletter input:hover{
 	padding-left:30px;
@@ -3291,4 +3290,20 @@ Version: 1.0
 }
 /*======================================
 	End Footer CSS
-========================================*/  
+========================================*/
+
+.text-small{
+	font-size: 28px;
+}
+
+.portfolio-meta{
+	margin-top: 7px;
+}
+
+.comment-children{
+	padding-left: 100px;
+}
+
+.comment-list{
+	padding-left: 0px;
+}
