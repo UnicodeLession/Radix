@@ -11,6 +11,10 @@ if (!empty(getBody()['keyword'])){
 if (empty($keyword)){
     loadError();
 }
+//tạo keyword url :
+$keywordArr = explode(' ', $keyword);
+$keywordArr = array_filter($keywordArr);
+$keywordUrl = implode("+", $keywordArr);
 
 $data = [
     'pageTitle' => 'Tìm kiếm: "'.$keyword.'"'
@@ -39,7 +43,7 @@ if (!empty(getBody()['page'])){
 $offset = ($page-1)*$perPage;
 
 //Truy vấn blog
-$listBlog = getRaw("SELECT title, description, blog.id, thumbnail, view_count, blog.create_at, blog_categories.name as cate_name FROM blog INNER JOIN blog_categories ON blog.category_id=blog_categories.id WHERE blog.title LIKE '%$keyword%' OR blog.content LIKE '%$keyword%' ORDER BY blog.create_at DESC LIMIT $offset, $perPage");
+$listBlog = getRaw("SELECT title, description, blog.id, thumbnail, view_count, blog.create_at, blog_categories.name as cate_name, blog_categories.id as cate_id FROM blog INNER JOIN blog_categories ON blog.category_id=blog_categories.id WHERE blog.title LIKE '%$keyword%' OR blog.content LIKE '%$keyword%' ORDER BY blog.create_at DESC LIMIT $offset, $perPage");
 
 
 ?>
@@ -59,10 +63,10 @@ $listBlog = getRaw("SELECT title, description, blog.id, thumbnail, view_count, b
                                 </div>
                                 <div class="blog-bottom">
                                     <div class="blog-inner">
-                                        <h4><a href="<?php echo _WEB_HOST_ROOT.'?module=blog&action=detail&id='.$item['id']; ?>"><?php echo $item['title']; ?></a></h4>
+                                        <h4><a href="<?php echo getLinkModule('blog', $item['id'], 'blog', 'slug') ?>"><?php echo $item['title']; ?></a></h4>
                                         <p><?php echo $item['description']; ?></p>
                                         <div class="meta">
-                                            <span><i class="fa fa-bolt"></i><a href="#"><?php echo $item['cate_name']; ?></a></span>
+                                            <span><i class="fa fa-bolt"></i><a href="<?php echo getLinkModule('blog_categories', $item['cate_id'], 'blog_categories', 'slug') ?>"><?php echo $item['cate_name']; ?></a></span>
                                             <span><i class="fa fa-calendar"></i><?php echo getDateFormat($item['create_at'], 'd/m/Y'); ?></span>
                                             <span><i class="fa fa-eye"></i><a href="#"><?php echo $item['view_count']; ?></a></span>
                                         </div>
@@ -94,15 +98,15 @@ $listBlog = getRaw("SELECT title, description, blog.id, thumbnail, view_count, b
                                     <?php
                                     if ($page>1){
                                         $prevPage = $page-1;
-                                        echo '<li class="prev"><a href="'._WEB_HOST_ROOT.'?module=search&keyword='.$keyword.'&page='.$prevPage.'"><i class="fa fa-angle-double-left"></i></a></li>';
+                                        echo '<li class="prev"><a href="'._WEB_HOST_ROOT.'/tim-kiem/page-'.$prevPage.'?keyword='.$keywordUrl.'"><i class="fa fa-angle-double-left"></i></a></li>';
                                     }
                                     for ($index = $begin; $index<=$end; $index++){
                                         $classActive = ($page==$index)?'active':false;
-                                        echo '<li class="'.$classActive.'"><a href="'._WEB_HOST_ROOT.'?module=search&keyword='.$keyword.'&page='.$index.'">'.$index.'</a></li>';
+                                        echo '<li class="'.$classActive.'"><a href="'._WEB_HOST_ROOT.'/tim-kiem/page-'.$index.'?keyword='.$keywordUrl.'">'.$index.'</a></li>';
                                     }
                                     if ($page<$maxPage){
                                         $nextPage = $page+1;
-                                        echo '<li class="next"><a href="'._WEB_HOST_ROOT.'?module=search&keyword='.$keyword.'&page='.$nextPage.'"><i class="fa fa-angle-double-right"></i></a></li>';
+                                        echo '<li class="next"><a href="'._WEB_HOST_ROOT.'/tim-kiem/page-'.$nextPage.'?keyword='.$keywordUrl.'"><i class="fa fa-angle-double-right"></i></a></li>';
                                     }
                                     ?>
 

@@ -75,7 +75,7 @@ $errors = getFlashData('errors');
                         echo html_entity_decode(getOption('footer_4_content'));
                         getMsg($msg, $msgType);
                         ?>
-                        <form method="post" action="<?php echo _WEB_HOST_ROOT.'/?module=subscribe&action=submit'; ?>">
+                        <form method="post" action="<?php echo _WEB_HOST_ROOT.'/submit-subscribe.html'; ?>">
                             <input placeholder="Tên của bạn..." name="fullname" type="text" />
                             <?php echo form_error('fullname', $errors, '<span class="error">', '</span>'); ?>
                             <input placeholder="Email của bạn..." name="email" type="email" />

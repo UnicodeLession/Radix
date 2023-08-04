@@ -59,7 +59,7 @@ $avatarUrl = 'https://www.gravatar.com/avatar/'.$hashGravatar.'?s=400';
                                 <div class="blog-inner">
                                     <div class="blog-top">
                                         <div class="meta">
-                                            <span><i class="fa fa-bolt"></i><?php echo '<a href="'._WEB_HOST_ROOT.'?module=blog&action=category&id='.$blogDetail['cate_id'].'">'.$blogDetail['cate_name'].'</a>'; ?></span>
+                                            <span><i class="fa fa-bolt"></i><?php echo '<a href="'.getLinkModule('blog_categories', $blogDetail['cate_id'],'blog_categories', 'slug').'">'.$blogDetail['cate_name'].'</a>'; ?></span>
                                             <span><i class="fa fa-calendar"></i><?php echo getDateFormat($blogDetail['create_at'], 'd/m/Y'); ?></span>
                                             <span><i class="fa fa-eye"></i><?php echo $blogDetail['view_count']; ?></span>
                                         </div>
@@ -76,16 +76,17 @@ $avatarUrl = 'https://www.gravatar.com/avatar/'.$hashGravatar.'?s=400';
                                     ?>
                                     <div class="bottom-area">
                                         <!-- Next Prev -->
+
                                         <ul class="arrow">
                                             <?php
                                             if ($currentKey>0):
                                                 ?>
-                                                <li class="prev"><a href="<?php echo _WEB_HOST_ROOT.'?module=blog&action=detail&id='.($allBlogs[$currentKey-1]['id']) ?>"><i class="fa fa-angle-double-left"></i>Bài trước</a></li>
+                                                <li class="prev"><a href="<?php echo getLinkModule('blog', ($allBlogs[$currentKey-1]['id']) ) ?>"><i class="fa fa-angle-double-left"></i>Bài trước</a></li>
                                             <?php
                                             endif;
                                             if ($currentKey<count($allBlogs)-1):
                                                 ?>
-                                                <li class="next"><a href="<?php echo _WEB_HOST_ROOT.'?module=blog&action=detail&id='.($allBlogs[$currentKey+1]['id']) ?>">Bài sau<i class="fa fa-angle-double-right"></i></a></li>
+                                                <li class="next"><a href="<?php echo getLinkModule('blog', ($allBlogs[$currentKey+1]['id']) ) ?>">Bài sau<i class="fa fa-angle-double-right"></i></a></li>
                                             <?php endif; ?>
                                         </ul>
                                         <!--/ End Next Prev -->
@@ -103,7 +104,7 @@ $avatarUrl = 'https://www.gravatar.com/avatar/'.$hashGravatar.'?s=400';
                                         echo $blogDetail['fullname'];
                                         echo '<span>'.$blogDetail['group_name'].'</span>';
                                         ?></h4>
-                                    <p><a href="<?php echo '?module=blog&user_id='.$blogDetail['user_id'] ?>"><i class="fa fa-pencil"></i><?php echo $blogDetail['blog_count']; ?> bài viết</a></p>
+                                    <p><a href="#"><i class="fa fa-pencil"></i><?php echo $blogDetail['blog_count']; ?> bài viết</a></p>
                                 </div>
                                 <div class="author-content">
                                     <p><?php echo $blogDetail['about_content']; ?></p>

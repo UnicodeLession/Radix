@@ -119,5 +119,27 @@ function getRows($sql){
 function insertId(){
     global $conn;
     return $conn->lastInsertId();
+}
 
+//Lấy id tiếp theo sẽ được thêm sau khi insert dữ liệu của AUTO_INCREMENT
+/*
+ * vd : có 1 user thì id là 1
+ * thêm 1 user nữa thì id sẽ là 2 nhưng sau khi xóa đi thì id tiếp theo insert dữ liệu vẫn là 3
+ * sau khi xóa id 2 đó thì return của hàm dưới sẽ trả về 3: là id tiếp theo sẽ nếu được insert
+ *
+ * dùng để show phần demo link trong các file add.php của admin/modules
+ * */
+
+function getAutoIncrementValue($table) {
+    global $conn;
+
+    // Refresh the AUTO_INCREMENT value manually
+    $refreshSql = "ANALYZE TABLE `$table`";
+    query($refreshSql);
+
+    // Get the next AUTO_INCREMENT value
+    $sql = "SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'phpbasic' AND TABLE_NAME = '$table'";
+    $nextAutoIncrement = query($sql, [], true)->fetchColumn();
+
+    return $nextAutoIncrement;
 }

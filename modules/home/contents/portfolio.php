@@ -59,6 +59,7 @@ $portfolios = getRaw("SELECT * FROM portfolios ORDER BY create_at DESC");
                         <?php
                         if (!empty($portfolios)):
                             foreach ($portfolios as $item):
+
                                 ?>
                                 <!-- Single portfolio -->
                                 <div class="cbp-item category_<?php echo $item['portfolio_category_id']; ?>">
@@ -77,7 +78,7 @@ $portfolios = getRaw("SELECT * FROM portfolios ORDER BY create_at DESC");
                                                 <?php endif; ?>
                                                 <a class="primary" data-fancybox="gallery" href="<?php echo $item['thumbnail']; ?>"><i class="fa fa-search"></i></a>
                                                 <a href="<?php echo $item['video']; ?>" class="primary cbp-lightbox"><i class="fa fa-play"></i></a>
-                                                <a href="<?php echo _WEB_HOST_ROOT.'/?module=portfolios&action=detail&id='.$item['id'] ?>"><i class="fa fa-link"></i></a>
+                                                <a href="<?php echo getLinkModule('portfolios', $item['id'], 'portfolios', 'slug') ?>"><i class="fa fa-link"></i></a>
                                             </div>
                                         </div>
                                     </div>

@@ -80,27 +80,28 @@ function getBody($method=''){
     $bodyArr = [];
 
     if (empty($method)){
-        if (isGet()){
+        if (isGet()) {
             //Xử lý chuỗi trước khi hiển thị ra
             //return $_GET;
             /*
              * Đọc key của mảng $_GET
              *
              * */
-            if (!empty($_GET)){
-                foreach ($_GET as $key=>$value){
+
+            if (!empty($_GET)) {
+                foreach ($_GET as $key => $value) {
                     $key = strip_tags($key);
-                    if (is_array($value)){
-                        $bodyArr[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
-                    }else{
-                        $bodyArr[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+                    if (is_array($value)) {
+                        //$bodyArr[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
+                        $bodyArr[$key] = filter_var($_GET[$key], FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
+                    } else {
+                        // $bodyArr[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+                        $bodyArr[$key] = filter_var($_GET[$key], FILTER_SANITIZE_SPECIAL_CHARS);
                     }
 
                 }
             }
-
         }
-
         if (isPost()){
             if (!empty($_POST)){
                 foreach ($_POST as $key=>$value){
@@ -121,9 +122,13 @@ function getBody($method=''){
                 foreach ($_GET as $key=>$value){
                     $key = strip_tags($key);
                     if (is_array($value)){
-                        $bodyArr[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
+//                        $bodyArr[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
+                        $bodyArr[$key] = filter_var($_GET[$key], FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
+
                     }else{
-                        $bodyArr[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+//                        $bodyArr[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+                        $bodyArr[$key] = filter_var($_GET[$key], FILTER_SANITIZE_SPECIAL_CHARS);
+
                     }
 
                 }

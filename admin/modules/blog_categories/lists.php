@@ -119,7 +119,11 @@ $msgType = getFlashData('msg_type');
                                     <td>
                                         <a href="<?php echo getLinkAdmin('blog_categories', '', ['id' => $item['id'], 'view' => 'edit']); ?>"><?php echo $item['name']; ?></a>
                                         <br>
-                                        <a href="<?php echo getLinkAdmin('blog_categories', '', ['id'=>$item['id'], 'view' => 'duplicate']); ?>" style="padding: 0 5px;" class="btn btn-danger btn-sm">Nhân bản</a></td>
+                                        <a href="<?php echo getLinkAdmin('blog_categories', '', ['id'=>$item['id'], 'view' => 'duplicate']); ?>" style="padding: 0 5px;" class="btn btn-danger btn-sm">Nhân bản</a>
+                                        <a href="<?php echo getLinkModule('blog_categories', $item['id'], 'blog_categories', 'slug') ?>" target="_blank" class="btn btn-sm btn-primary" style="padding: 0 10px;" target="_blank">Xem</a>
+
+                                    </td>
+
 
                                     </td>
                                     <td><?php echo getDateFormat($item['create_at'], 'd/m/Y H:i:s'); ?></td>

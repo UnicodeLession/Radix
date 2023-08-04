@@ -107,7 +107,7 @@ if (isPost()) {
 
             setFlashData('msg', 'Liên hệ đã được gửi đi thành công. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.');
             setFlashData('msg_type', 'success');
-            redirect('?module=page_template&action=contact');
+            redirect('lien-he.html');
 
         }else{
             setFlashData('msg', 'Không không thể gửi liên hệ lúc này. Vui lòng thử lại sau.');
@@ -120,7 +120,7 @@ if (isPost()) {
         setFlashData('errors', $errors);
     }
 
-    redirect('?module=page_template&action=contact#contact-us');
+    redirect('lien-he.html#contact-us');
 }
 
 $msg = getFlashData('msg');

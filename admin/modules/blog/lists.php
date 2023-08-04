@@ -194,7 +194,7 @@ $msgType = getFlashData('msg_type');
                                 <br />
                                 <a href="<?php echo getLinkAdmin('blog', 'duplicate', ['id'=>$item['id']]); ?>" style="padding: 0 5px;" class="btn btn-danger btn-sm">Nhân bản</a>
                                 <span class="btn btn-success btn-sm" style="padding: 0 5px"><?php echo $item['view_count'] ?> lượt xem</span>
-                                <a href="#" class="btn btn-sm btn-primary" style="padding: 0 10px;" target="_blank">Xem</a>
+                                <a href="<?php echo getLinkModule('blog', $item['id'], 'blog', 'slug') ?>" target="_blank" class="btn btn-sm btn-primary" style="padding: 0 10px;" target="_blank">Xem</a>
                             </td>
 
                             <td>

@@ -102,7 +102,9 @@ if (isPost()){
         setFlashData('old', $body);
     }
 
-    redirect('?module=blog&action=detail&id='.$id.'#comment-form');
+//    redirect('?module=blog&action=detail&id='.$id.'#comment-form');
+    $linkBlog = getLinkModule('blog', $id).'#comment-form';
+    redirect($linkBlog, true);
 
 }
 

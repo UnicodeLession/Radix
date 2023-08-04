@@ -197,7 +197,11 @@ $msgType = getFlashData('msg_type');
                     <td><?php echo $count; ?></td>
                     <td>
                         <a href="<?php echo getLinkAdmin('portfolios', 'edit', ['id'=>$item['id']]); ?>"><?php echo $item['name']; ?></a>
-                        <a href="<?php echo getLinkAdmin('portfolios', 'duplicate', ['id'=>$item['id']]); ?>" style="padding: 0 5px;" class="btn btn-danger btn-sm">Nhân bản</a></td>
+                        <br />
+                        <a href="<?php echo getLinkAdmin('portfolios', 'duplicate', ['id'=>$item['id']]); ?>" style="padding: 0 5px;" class="btn btn-danger btn-sm">Nhân bản</a>
+                        <a href="<?php echo getLinkModule('portfolios', $item['id'], 'portfolios', 'slug') ?>" target="_blank" class="btn btn-sm btn-primary" style="padding: 0 10px;" target="_blank">Xem</a>
+
+                    </td>
 
                     </td>
                     <td>

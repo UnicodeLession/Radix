@@ -222,7 +222,7 @@ $msgType = getFlashData('msg_type');
                             </td>
                             <td><?php echo getDateFormat($item['create_at'], 'd/m/Y H:i:s'); ?></td>
                             <td class="text-center">
-                                <a target="_blank" href="<?php echo _WEB_HOST_ROOT.'?module=blog&action=detail&id='.$item['blog_id']; ?>"><?php echo getLimitText($item['title'], 5); ?></a>
+                                <a target="_blank" href="<?php echo getLinkModule('blog', $item['blog_id']) ?>"><?php echo getLimitText($item['title'], 5); ?></a>
                             </td>
                             <td class="text-center"><a href="<?php echo getLinkAdmin('comments', 'edit', ['id'=>$item['id']]); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Sửa</a></td>
                             <td class="text-center"><a href="<?php echo getLinkAdmin('comments', 'delete', ['id'=>$item['id']]); ?>" onclick="return confirm('Bạn có chắc chắn muốn xoá?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Xoá</a></td>

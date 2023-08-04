@@ -20,6 +20,10 @@ function toSlug(title){
 
     return slug;
 }
+//Lấy id từ url
+let fullUrl = window.location.href;
+let searchParams = new URLSearchParams(fullUrl);
+let id = searchParams.get('id');
 
 let sourceTitle = document.querySelector('.slug');
 let slugRender = document.querySelector('.render-slug');
@@ -30,10 +34,14 @@ if (renderLink!==null){
     //Lấy slug
     let slug = '';
     if (slugRender!==null){
-        slug = '/'+slugRender.value.trim();
+        // slug = '/'+slugRender.value.trim();
+        slug = '/'+prefixUrl+'/'+slugRender.value.trim()+'-'+id+'.html';
     }
 
-    renderLink.querySelector('span').innerHTML = `<a href="${rootUrl+slug}" target="_blank">${rootUrl+slug}</a>`;
+    // renderLink.querySelector('span').innerHTML = `<a href="${rootUrl+slug}" target="_blank">${rootUrl+slug}</a>`;
+    if (id!==null){
+        renderLink.querySelector('span').innerHTML = `<a href="${rootUrl+slug}" target="_blank">${rootUrl+slug}</a`;
+    }
 }
 if (sourceTitle!==null && slugRender!==null){
     sourceTitle.addEventListener('keyup', (e)=>{
@@ -53,10 +61,12 @@ if (sourceTitle!==null && slugRender!==null){
     sourceTitle.addEventListener('change', ()=>{
         sessionStorage.setItem('save_slug', 1);
 
-        let currentLink = rootUrl+'/'+prefixUrl+'/'+slugRender.value.trim()+'.html';
+        if (id!==null){
+            let currentLink = rootUrl+'/'+prefixUrl+'/'+slugRender.value.trim()+'-'+id+'.html';
 
-        renderLink.querySelector('span a').innerHTML=currentLink;
-        renderLink.querySelector('span a').href=currentLink;
+            renderLink.querySelector('span a').innerHTML=currentLink;
+            renderLink.querySelector('span a').href=currentLink;
+        }
     });
 
     slugRender.addEventListener('change', (e)=>{
@@ -67,10 +77,12 @@ if (sourceTitle!==null && slugRender!==null){
             e.target.value = slug;
         }
 
-        let currentLink = rootUrl+'/'+prefixUrl+'/'+slugRender.value.trim()+'.html';
+        if (id!==null){
+            let currentLink = rootUrl+'/'+prefixUrl+'/'+slugRender.value.trim()+'-'+id+'.html';
 
-        renderLink.querySelector('span a').innerHTML=currentLink;
-        renderLink.querySelector('span a').href=currentLink;
+            renderLink.querySelector('span a').innerHTML=currentLink;
+            renderLink.querySelector('span a').href=currentLink;
+        }
     });
 
     if (slugRender.value.trim()==''){

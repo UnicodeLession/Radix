@@ -95,7 +95,7 @@ if(!empty($menuJson)) {
                         <!-- Search Form -->
                         <div class="search-form active">
                             <a class="icon" href="#"><i class="fa fa-search"></i></a>
-                            <form class="form" method="get" action="<?php echo _WEB_HOST_ROOT.'/tim-kiem.html'; ?>">
+                            <form class="form" method="get" action="<?php echo _WEB_HOST_ROOT.'/tim-kiem'; ?>">
                                 <input placeholder="<?php echo getOption('header_search_placeholder'); ?>" type="search" value="<?php echo !empty(getBody()['keyword'])?getBody()['keyword']:false; ?>" name="keyword">
                                 <!--                                <input type="hidden" name="module" value="search" />-->
                             </form>
@@ -135,8 +135,8 @@ if(!empty($menuJson)) {
                         </a>
                     </div>
                     <div class="link"><a href="<?php echo _WEB_HOST_ROOT; ?>">
-                            <?php if (!empty($logo)): ?>
-                                <img src="<?php echo $logo; ?>" style="height: 45px; width: auto;">
+                            <?php if (!empty(getOption('general_sitename_web'))): ?>
+                                <h1 style="margin-top: 10px;"><?php echo getOption('general_sitename_web'); ?></h1>
                             <?php else: ?>
                                 <h1 style="margin-top: 10px;"><?php echo getOption('general_sitename'); ?></h1>
                             <?php endif; ?>

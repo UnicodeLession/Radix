@@ -8,7 +8,6 @@ layout('header', 'admin', $data);
 layout('sidebar', 'admin', $data);
 layout('breadcrumb', 'admin', $data);
 
-
 //Xử lý lọc dữ liệu
 
 $filter = '';
@@ -83,7 +82,7 @@ if (!empty($_SERVER['QUERY_STRING'])){
 }
 
 //Lấy dữ liệu dịch vụ
-$listServices = getRaw("SELECT services.id, icon, name, services.create_at, fullname, users.id as user_id FROM services INNER JOIN users ON services.user_id=users.id $filter ORDER BY services.create_at DESC LIMIT $offset, $perPage");
+$listServices = getRaw("SELECT services.id, icon, name, services.create_at, fullname, slug , users.id as user_id FROM services INNER JOIN users ON services.user_id=users.id $filter ORDER BY services.create_at DESC LIMIT $offset, $perPage");
 
 //Lấy dữ liệu tất cả người dùng
 $allUsers = getRaw("SELECT id, fullname, email FROM users ORDER BY fullname");
@@ -158,7 +157,7 @@ $msgType = getFlashData('msg_type');
                             </td>
                             <td><?php echo getDateFormat($item['create_at'], 'd/m/Y H:i:s'); ?></td>
                             <td class="text-center">
-                                <a href="" class="btn btn-primary btn-sm">Xem</a>
+                                <a href="<?php echo getLinkModule('services', $item['id'], 'services', 'slug') ?>" target="_blank" class="btn btn-primary btn-sm">Xem</a>
                             </td>
                             <td class="text-center"><a href="<?php echo getLinkAdmin('services', 'edit', ['id'=>$item['id']]); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Sửa</a></td>
                             <td class="text-center"><a href="<?php echo getLinkAdmin('services', 'delete', ['id'=>$item['id']]); ?>" onclick="return confirm('Bạn có chắc chắn muốn xoá?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Xoá</a></td>
