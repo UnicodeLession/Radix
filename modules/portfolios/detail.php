@@ -26,7 +26,7 @@ $data = [
 
 layout('header', 'client', $data);
 
-$data['itemParent'] = '<li><a href="'._WEB_HOST_ROOT.'?module=portfolios">'.getOption('portfolio_title').'</a></li>';
+$data['itemParent'] = '<li><a href="'._WEB_HOST_ROOT.'/du-an.html">'.getOption('portfolio_title').'</a></li>';
 
 layout('breadcrumb', 'client', $data);
 

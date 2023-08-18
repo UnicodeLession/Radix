@@ -41,6 +41,8 @@ if (renderLink!==null){
     // renderLink.querySelector('span').innerHTML = `<a href="${rootUrl+slug}" target="_blank">${rootUrl+slug}</a>`;
     if (id!==null){
         renderLink.querySelector('span').innerHTML = `<a href="${rootUrl+slug}" target="_blank">${rootUrl+slug}</a`;
+    } else {
+        renderLink.querySelector('span').innerHTML = 'Link chưa được cập nhật, vui lòng thêm mới'
     }
 }
 if (sourceTitle!==null && slugRender!==null){

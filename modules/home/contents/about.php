@@ -17,8 +17,9 @@ if (!empty($homeAboutJson)){
                 <div class="section-title wow fadeInUp">
                     <span class="title-bg"><?php echo !empty($homeAboutInfo['title_bg'])?$homeAboutInfo['title_bg']:false; ?></span>
                     <?php
-                    if (!empty($homeAboutInfo['desc'])){}
-                    echo html_entity_decode($homeAboutInfo['desc']);
+                    if (!empty($homeAboutInfo['desc'])){
+                        echo html_entity_decode($homeAboutInfo['desc']);
+                    }
                     ?>
                 </div>
             </div>
