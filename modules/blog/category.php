@@ -16,7 +16,7 @@ if (!empty(getBody()['id'])){
 
 $data = [
     'pageTitle' => $category['name'],
-    'itemParent' => '<li><a href="'._WEB_HOST_ROOT.'?module=blog">'.getOption('blog_title').'</a></li>'
+    'itemParent' => '<li><a href="'._WEB_HOST_ROOT.'/blog.html">'.getOption('blog_title').'</a></li>'
 ];
 
 layout('header', 'client', $data);

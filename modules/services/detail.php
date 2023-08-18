@@ -23,7 +23,7 @@ $data = [
 
 layout('header', 'client', $data);
 
-$data['itemParent'] = '<li><a href="'._WEB_HOST_ROOT.'?module=services">'.getOption('service_title').'</a></li>';
+$data['itemParent'] = '<li><a href="'._WEB_HOST_ROOT.'/dich-vu.html">'.getOption('service_title').'</a></li>';
 
 layout('breadcrumb', 'client', $data);
 

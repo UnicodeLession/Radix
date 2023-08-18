@@ -16,8 +16,8 @@ if (!empty(getBody('get')['id'])){
     loadError();
 }
 
-$parentBreadCrumb = '<li><a href="'._WEB_HOST_ROOT.'?module=blog">'.getOption('blog_title').'</a></li>';
-$parentBreadCrumb.= '<li><a href="'._WEB_HOST_ROOT.'?module=blog&action=category&id='.$blogDetail['cate_id'].'">'.$blogDetail['cate_name'].'</a></li>';
+$parentBreadCrumb = '<li><a href="'._WEB_HOST_ROOT.'?blog.html">'.getOption('blog_title').'</a></li>';
+$parentBreadCrumb.= '<li><a href="'.getLinkModule('blog_categories', $blogDetail['cate_id'],'blog_categories', 'slug').'">'.$blogDetail['cate_name'].'</a></li>';
 
 $data = [
     'pageTitle' => $blogDetail['title'],

@@ -68,7 +68,7 @@ $portfolios = getRaw("SELECT * FROM portfolios ORDER BY create_at DESC");
                                             <img src="<?php echo $item['thumbnail']; ?>" alt="#"/>
                                         </div>
                                         <div class="portfolio-hover">
-                                            <h4><a href="<?php echo _WEB_HOST_ROOT.'/?module=portfolios&action=detail&id='.$item['id'] ?>"><?php echo $item['name']; ?></a></h4>
+                                            <h4><a href="<?php echo getLinkModule('portfolios', $item['id'], 'portfolios', 'slug') ?>"><?php echo $item['name']; ?></a></h4>
                                             <p><?php echo $item['description']; ?></p>
                                             <div class="button">
                                                 <?php
