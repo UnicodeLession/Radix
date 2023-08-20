@@ -43,7 +43,6 @@ $targetUrl = null;
 if (!empty($route)){
     foreach ($route as $key => $item){
         if (preg_match('~^'.$key.'$~i', $currentUrl)){
-
             $targetUrl = preg_replace('~^'.$key.'$~i', $item, $currentUrl);
             break;
         }

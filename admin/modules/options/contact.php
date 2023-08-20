@@ -28,7 +28,6 @@ $errors = getFlashData('errors');
                     <input type="text" class="form-control" name="contact_title" placeholder="<?php echo getOption('contact_title', 'label'); ?>..." value="<?php echo getOption('contact_title'); ?>"/>
                     <?php echo form_error('contact_title', $errors, '<span class="error">', '</span>'); ?>
                 </div>
-
                 <h5>Thiết lập chung</h5>
                 <div class="form-group">
                     <label for=""><?php echo getOption('contact_primary_title', 'label'); ?></label>

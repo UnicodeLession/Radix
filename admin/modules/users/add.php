@@ -79,7 +79,7 @@ if (isPost()){
             'group_id' => $body['group_id'],
             'password' => password_hash($body['password'], PASSWORD_DEFAULT),
             'status' => $body['status'],
-            'create_at' => date('Y-m-d H:i:s')
+            'create_at' => date('Y-m-d H:i:s'),
         ];
 
         $insertStatus = insert('users', $dataInsert);

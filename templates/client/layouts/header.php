@@ -46,7 +46,6 @@ if(!empty($menuJson)) {
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/slickslider.min.css ?ver=<?php echo rand(); ?>">
     <!-- Animate CSS -->
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/animate.min.css ?ver=<?php echo rand(); ?>">
-
     <!-- Radix StyleShet CSS -->
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/reset.css?ver=<?php echo rand(); ?>">
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/style.css ?ver=<?php echo rand(); ?>">

@@ -270,14 +270,15 @@ function autoRemoveTokenLogin(){
     if (!empty($allUsers)){
         foreach ($allUsers as $user){
             $now = date('Y-m-d H:i:s');
+            if(!empty($user['last_activity'])) {
+                $before = $user['last_activity'];
 
-            $before = $user['last_activity'];
-
-            $diff = strtotime($now)-strtotime($before);
-            $diff = floor($diff/60);
-
-            if ($diff>=1){
-                delete('login_token', "user_id=".$user['id']);
+                $diff = strtotime($now)-strtotime($before);
+                $diff = floor($diff/60);
+    
+                if ($diff>=1){
+                    delete('login_token', "user_id=".$user['id']);
+                }
             }
         }
     }
