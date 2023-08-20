@@ -8,18 +8,16 @@ $data = [
 layout('header', 'admin', $data);
 layout('sidebar', 'admin', $data);
 layout('breadcrumb', 'admin', $data);
-$host = getOption('host');
-$optArr = getRaw("SELECT opt_key,opt_value FROM options WHERE opt_value LIKE '%$host%'");
 if (isPost()) {
+    $host = getOption('host');
+    $optArr = getRaw("SELECT opt_key,opt_value FROM options WHERE opt_value LIKE '%$host%'");
     $data = [];
-    if (!empty(getBody()['host'])) {
-        $newHost = getBody()['host'];
-        foreach ($optArr as $key => $opt) {
-            $optKey = $opt['opt_key'];
-            $optValue = $opt['opt_value'];
-            $optValue = str_replace($host, $newHost, $optValue);
-            $data[$optKey] = $optValue;
-        }
+    $newHost = $_SERVER['HTTP_HOST'];
+    foreach ($optArr as $key => $opt) {
+        $optKey = $opt['opt_key'];
+        $optValue = $opt['opt_value'];
+        $optValue = str_replace($host, $newHost, $optValue);
+        $data[$optKey] = $optValue;
     }
     updateOptions($data);
 }

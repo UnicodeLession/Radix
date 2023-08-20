@@ -26,6 +26,7 @@ set_error_handler('setErrorHandler');
 
 loadExceptionError();
 
+
 //Xử lý rewrite url
 $currentUrl = null;
 
@@ -67,7 +68,20 @@ if (!empty($targetUrl)){
     }
 
 }
-
+//sửa link:
+$host = getOption('host');
+$optArr = getRaw("SELECT opt_key,opt_value FROM options WHERE opt_value LIKE '%$host%'");
+$newHost = $_SERVER['HTTP_HOST'];
+foreach ($optArr as $key => $opt) {
+    $optKey = $opt['opt_key'];
+    $optValue = $opt['opt_value'];
+    $optValue = str_replace($host, $newHost, $optValue);
+    $condition = "opt_key = '$optKey'";
+    $dataUpdate = [
+        'opt_value' => trim($optValue)
+    ];
+    update('options', $dataUpdate, $condition);
+}
 //die();
 if (!empty($_GET['module'])){
     if (is_string($_GET['module'])){
@@ -88,3 +102,5 @@ if (file_exists($path)){
 }else{
     require_once 'modules/errors/404.php';
 }
+
+

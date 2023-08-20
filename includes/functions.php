@@ -566,7 +566,6 @@ function updateOptions($data=[], $errors=[]){
         redirect(getPathAdmin()); //reload trang
     }
 }
-
 function getCountContacts(){
     $sql = "SELECT id FROM contacts WHERE status=0";
     $count = getRows($sql);
