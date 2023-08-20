@@ -270,6 +270,7 @@ function autoRemoveTokenLogin(){
     if (!empty($allUsers)){
         foreach ($allUsers as $user){
             $now = date('Y-m-d H:i:s');
+
             if(!empty($user['last_activity'])) {
                 $before = $user['last_activity'];
 
@@ -566,6 +567,7 @@ function updateOptions($data=[], $errors=[]){
         redirect(getPathAdmin()); //reload trang
     }
 }
+
 function getCountContacts(){
     $sql = "SELECT id FROM contacts WHERE status=0";
     $count = getRows($sql);

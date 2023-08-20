@@ -26,33 +26,34 @@ if(!empty($menuJson)) {
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,800" rel="stylesheet">
 
     <!-- Bootstrap Css -->
-    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/bootstrap.min.css ?ver=<?php echo rand(); ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/bootstrap.min.css?ver=<?php echo rand(); ?>">
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/font-awesome.min.css ?ver=<?php echo rand(); ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/font-awesome.min.css?ver=<?php echo rand(); ?>">
     <!-- Slick Nav CSS -->
-    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/slicknav.min.css ?ver=<?php echo rand(); ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/slicknav.min.css?ver=<?php echo rand(); ?>">
     <!-- Cube Portfolio CSS -->
-    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/cubeportfolio.min.css ?ver=<?php echo rand(); ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/cubeportfolio.min.css?ver=<?php echo rand(); ?>">
     <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/magnific-popup.min.css ?ver=<?php echo rand(); ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/magnific-popup.min.css?ver=<?php echo rand(); ?>">
     <!-- Fancy Box CSS -->
-    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/jquery.fancybox.min.css ?ver=<?php echo rand(); ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/jquery.fancybox.min.css?ver=<?php echo rand(); ?>">
     <!-- Nice Select CSS -->
-    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/niceselect.css ?ver=<?php echo rand(); ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/niceselect.css?ver=<?php echo rand(); ?>">
     <!-- Owl Carousel CSS -->
-    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/owl.theme.default.css ?ver=<?php echo rand(); ?>">
-    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/owl.carousel.min.css ?ver=<?php echo rand(); ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/owl.theme.default.css?ver=<?php echo rand(); ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/owl.carousel.min.css?ver=<?php echo rand(); ?>">
     <!-- Slick Slider CSS -->
-    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/slickslider.min.css ?ver=<?php echo rand(); ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/slickslider.min.css?ver=<?php echo rand(); ?>">
     <!-- Animate CSS -->
-    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/animate.min.css ?ver=<?php echo rand(); ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/animate.min.css?ver=<?php echo rand(); ?>">
+
     <!-- Radix StyleShet CSS -->
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/reset.css?ver=<?php echo rand(); ?>">
-    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/style.css ?ver=<?php echo rand(); ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/style.css?ver=<?php echo rand(); ?>">
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/responsive.css?ver=<?php echo rand(); ?>">
 
     <!-- Radix Color CSS -->
-    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/color/color1.css ?ver=<?php echo rand(); ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE; ?>/css/color/color1.css?ver=<?php echo rand(); ?>">
 
     <?php head(); ?>
 </head>
@@ -125,7 +126,7 @@ if(!empty($menuJson)) {
                     ?>
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="<?php echo _WEB_HOST_ROOT; ?>">
+                        <a href="/">
                             <?php if (!empty($logo)): ?>
                                 <img src="<?php echo $logo; ?>" alt="logo">
                             <?php else: ?>
@@ -133,7 +134,7 @@ if(!empty($menuJson)) {
                             <?php endif; ?>
                         </a>
                     </div>
-                    <div class="link"><a href="<?php echo _WEB_HOST_ROOT; ?>">
+                    <div class="link"><a href="/">
                             <?php if (!empty(getOption('general_sitename_web'))): ?>
                                 <h1 style="margin-top: 10px;"><?php echo getOption('general_sitename_web'); ?></h1>
                             <?php else: ?>

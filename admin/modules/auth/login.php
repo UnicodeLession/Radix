@@ -96,6 +96,9 @@ $msgType = getFlashData('msg_type');
             <hr>
             <p class="text-center"><a href="?module=auth&action=forgot">Quên mật khẩu</a></p>
             <p class="text-center"><a href="<?php echo _WEB_HOST_ROOT; ?>">Truy cập với tư cách khách</a></p>
+            <p>Email: admin@gmail.com</p>
+            <p>mật khẩu: 12345678</p>
+            
         </form>
     </div>
 </div>

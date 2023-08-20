@@ -26,7 +26,6 @@ set_error_handler('setErrorHandler');
 
 loadExceptionError();
 
-
 //Xử lý rewrite url
 $currentUrl = null;
 
@@ -44,6 +43,7 @@ $targetUrl = null;
 if (!empty($route)){
     foreach ($route as $key => $item){
         if (preg_match('~^'.$key.'$~i', $currentUrl)){
+
             $targetUrl = preg_replace('~^'.$key.'$~i', $item, $currentUrl);
             break;
         }
@@ -68,20 +68,9 @@ if (!empty($targetUrl)){
     }
 
 }
-//sửa link:
-$host = getOption('host');
-$optArr = getRaw("SELECT opt_key,opt_value FROM options WHERE opt_value LIKE '%$host%'");
-$newHost = $_SERVER['HTTP_HOST'];
-foreach ($optArr as $key => $opt) {
-    $optKey = $opt['opt_key'];
-    $optValue = $opt['opt_value'];
-    $optValue = str_replace($host, $newHost, $optValue);
-    $condition = "opt_key = '$optKey'";
-    $dataUpdate = [
-        'opt_value' => trim($optValue)
-    ];
-    update('options', $dataUpdate, $condition);
-}
+
+
+
 //die();
 if (!empty($_GET['module'])){
     if (is_string($_GET['module'])){
@@ -103,4 +92,18 @@ if (file_exists($path)){
     require_once 'modules/errors/404.php';
 }
 
-
+//sửa link:
+$host = getOption('host');
+$optArr = getRaw("SELECT opt_key,opt_value FROM options WHERE opt_value LIKE '%$host%'");
+$data = [];
+$newHost = $_SERVER['HTTP_HOST'];
+foreach ($optArr as $key => $opt) {
+    $optKey = $opt['opt_key'];
+    $optValue = $opt['opt_value'];
+    $optValue = str_replace($host, $newHost, $optValue);
+    $condition = "opt_key = '$optKey'";
+    $dataUpdate = [
+        'opt_value' => trim($optValue)
+    ];
+    update('options', $dataUpdate, $condition);
+}

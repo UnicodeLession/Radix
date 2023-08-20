@@ -8,16 +8,18 @@ $data = [
 layout('header', 'admin', $data);
 layout('sidebar', 'admin', $data);
 layout('breadcrumb', 'admin', $data);
+$host = getOption('host');
+$optArr = getRaw("SELECT opt_key,opt_value FROM options WHERE opt_value LIKE '%$host%'");
 if (isPost()) {
-    $host = getOption('host');
-    $optArr = getRaw("SELECT opt_key,opt_value FROM options WHERE opt_value LIKE '%$host%'");
     $data = [];
-    $newHost = $_SERVER['HTTP_HOST'];
-    foreach ($optArr as $key => $opt) {
-        $optKey = $opt['opt_key'];
-        $optValue = $opt['opt_value'];
-        $optValue = str_replace($host, $newHost, $optValue);
-        $data[$optKey] = $optValue;
+    if (!empty(getBody()['host'])) {
+        $newHost = getBody()['host'];
+        foreach ($optArr as $key => $opt) {
+            $optKey = $opt['opt_key'];
+            $optValue = $opt['opt_value'];
+            $optValue = str_replace($host, $newHost, $optValue);
+            $data[$optKey] = $optValue;
+        }
     }
     updateOptions($data);
 }
@@ -32,7 +34,7 @@ $errors = getFlashData('errors');
             <?php
             getMsg($msg, $msgType);
             ?>
-            <h5>Thiết lập tên server host</h5>
+            <h5>Thiết lập server host name trong database</h5>
             <div class="form-group">
                 <label for="">
                     <?php echo getOption('host', 'label'); ?>
@@ -43,6 +45,7 @@ $errors = getFlashData('errors');
                 <?php echo form_error('host', $errors, '<span class="error">', '</span>'); ?>
                 <span>Server Host hiện tại là: <strong><a href="<?php echo $_SERVER['HTTP_HOST']?>"><?php echo $_SERVER['HTTP_HOST']?></a></strong></span>
             </div>
+
             <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
 
         </form>

@@ -13,7 +13,7 @@
                         ?>
                     </h2>
                 <ul>
-                    <li><a href="<?php echo _WEB_HOST_ROOT; ?>"><i class="fa fa-home"></i>Trang chủ</a></li>
+                    <li><a href="/"><i class="fa fa-home"></i>Trang chủ</a></li>
                     <?php
                     echo (!empty($data['itemParent']))?$data['itemParent']:false;
                     ?>

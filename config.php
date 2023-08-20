@@ -14,7 +14,7 @@ const _INCODE = true; //Ngăn chặn hành vi truy cập trực tiếp vào file
 
 //Thiết lập host
 
-define('_WEB_HOST_ROOT', 'http://'.$_SERVER['HTTP_HOST'].'/radix'); //Địa chỉ trang chủ
+define('_WEB_HOST_ROOT', '/radix'); //Địa chỉ trang chủ
 
 define('_WEB_HOST_TEMPLATE', _WEB_HOST_ROOT.'/templates/client');
 
@@ -27,11 +27,11 @@ define('_WEB_PATH_ROOT', __DIR__);
 define('_WEB_PATH_TEMPLATE', _WEB_PATH_ROOT.'/templates');
 
 //Thiết lập kết nối database
-const _DEBUG = true;
+const _DEBUG = false;
 const _HOST = 'localhost';
-const _USER = 'root';
-const _PASS = ''; //Xampp => pass='';
-const _DB = 'phpbasic';
+const _USER = 'vietanhb_radix';
+const _PASS = 'C8i_PJr;=Ru3'; //Xampp => pass='';
+const _DB = 'vietanhb_phpbasic';
 const _DRIVER = 'mysql';
 
 //Thiết lập số lượng bản ghi hiển thị trên 1 trang
